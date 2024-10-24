@@ -62,15 +62,15 @@ public class LoginAlta extends javax.swing.JFrame {
             
         }
     } */
-    public void imprimirListaLogin(){
+    public void imprimirListaLogin() {
         System.out.println("Impresion Login");
         Login objAux;
-        
-        for(int i=0; i<objOperacionesListaLogin.listaLogin.size();i++){
-            objAux=objListaLogin.get(i);
+
+        for (int i = 0; i < objOperacionesListaLogin.listaLogin.size(); i++) {
+            objAux = objListaLogin.get(i);
         }
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
