@@ -2,24 +2,25 @@ package modelo;
 
 public class Login {
 
-    private String nombre, contraseña;
+    private String usuario, contraseña;
     private int idusaurio;
 
     public Login() {
     }
 
-    public Login(String usuario, String nombre, String contraseña, int idusaurio) {
-        this.nombre = nombre;
-        this.contraseña = contraseña;
+    public Login(int idusaurio, String usuario, String contraseña) {
         this.idusaurio = idusaurio;
+        this.usuario = usuario;
+        this.contraseña = contraseña;
+        
     }
 
     public String getUsuario() {
-        return nombre;
+        return usuario;
     }
 
-    public void setUsuario(String nombre) {
-        this.nombre = nombre;
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 
     public String getContraseña() {

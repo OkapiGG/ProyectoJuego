@@ -10,7 +10,7 @@ public class Conexion {
     private final String PUERTO = "5432";
     private final String DB = "login";
     private final String USER = "postgres";
-    private final String PASSWORD = "ema24";
+    private final String PASSWORD = "maiz564";
 
     public Connection getConexion() {
         Connection conexion = null;

@@ -20,10 +20,10 @@ public class OperacionesBDLogin extends CRUD {
         try {
             System.out.println("Insercion a la base de datos correcta");
             Statement stmt = objConexion.getConexion().createStatement();
-            /*stmt.execute("insert into login values ('"
-                    + objLogin.getIdusaurio() + "','" + objLogin.getUsuario()
-                    + "','" + objLogin.getContraseña()
-                    + ")");*/
+            stmt.execute("INSERT INTO login VALUES ("
+                + objLogin.getIdusaurio() + ",'" 
+                + objLogin.getUsuario() + "','" 
+                + objLogin.getContraseña() + "')");
         } catch (Exception e) {
             System.out.println("Error al insertar en la base de datos");
         }
