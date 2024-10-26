@@ -15,6 +15,7 @@ public class ControladorLogin implements ActionListener {
     public ArrayList<Login> objListaLogin;
     Login objLogin;
     Conexion objConexion;
+    Verificador objVerificador;
 
     public ControladorLogin(LoginAlta objLoginAlta) {
         this.objLoginAlta = objLoginAlta;
@@ -23,12 +24,17 @@ public class ControladorLogin implements ActionListener {
         objOperacionesListaLogin = new OperacionesListaLogin();
         this.objLoginAlta.jButton1.addActionListener(this);
         objConexion = new Conexion();
+        this.objVerificador = new Verificador();
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.objLoginAlta.jButton1) {
 
+            if (!verificaCampos()) {
+                return;
+            }
+            
             int nuevoId = obtenerUltimoIdUsuario() + 1;
            
             Login objLogin = new Login();
@@ -58,6 +64,15 @@ public class ControladorLogin implements ActionListener {
             System.out.println("Error al obtener el último ID: " + e.getMessage());
         }
         return ultimoId;
+    }
+    
+    public boolean verificaCampos() {
+        if (!objVerificador.verificaCajaTextoVacio(this.objLoginAlta.jTextField1)) {
+            return false;
+        } else if (!objVerificador.verificaCajaTextoVacio(this.objLoginAlta.jTextField2)) {
+            return false;
+        }
+        return true;
     }
 
 }
