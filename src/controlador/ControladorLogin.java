@@ -48,7 +48,7 @@ public class ControladorLogin implements ActionListener {
 
             objOperacionesBDLogin.setObjLogin(objLogin);
             objOperacionesBDLogin.create();
-  
+            
         }
     }
 
