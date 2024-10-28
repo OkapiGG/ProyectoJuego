@@ -6,10 +6,12 @@ import java.util.ArrayList;
 import vista.LoginAlta;
 import modelo.Login;
 import java.sql.*;
+import vista.Instrucciones;
 
 public class ControladorLogin implements ActionListener {
 
     public LoginAlta objLoginAlta;
+    public Instrucciones objInstrucciones;
     OperacionesBDLogin objOperacionesBDLogin;
     OperacionesListaLogin objOperacionesListaLogin;
     public ArrayList<Login> objListaLogin;
@@ -20,9 +22,11 @@ public class ControladorLogin implements ActionListener {
     public ControladorLogin(LoginAlta objLoginAlta) {
         this.objLoginAlta = objLoginAlta;
         objLogin = new Login();
+        this.objLoginAlta.jButton1.addActionListener(this);
+
         objOperacionesBDLogin = new OperacionesBDLogin();
         objOperacionesListaLogin = new OperacionesListaLogin();
-        this.objLoginAlta.jButton1.addActionListener(this);
+
         objConexion = new Conexion();
         this.objVerificador = new Verificador();
     }
@@ -34,21 +38,21 @@ public class ControladorLogin implements ActionListener {
             if (!verificaCampos()) {
                 return;
             }
-            
+
             int nuevoId = obtenerUltimoIdUsuario() + 1;
-           
+
             Login objLogin = new Login();
             objLogin.setIdusaurio(nuevoId);
             objLogin.setUsuario(objLoginAlta.jTextField1.getText());
             objLogin.setContraseña(objLoginAlta.jTextField2.getText());
             //objLoginAlta.getObjListaLogin().add(objLogin);
-            
+
             objOperacionesListaLogin.setObjLogin(objLogin);
             objOperacionesListaLogin.create();
 
             objOperacionesBDLogin.setObjLogin(objLogin);
             objOperacionesBDLogin.create();
-            
+
         }
     }
 
@@ -65,7 +69,7 @@ public class ControladorLogin implements ActionListener {
         }
         return ultimoId;
     }
-    
+
     public boolean verificaCampos() {
         if (!objVerificador.verificaCajaTextoVacio(this.objLoginAlta.jTextField1)) {
             return false;
