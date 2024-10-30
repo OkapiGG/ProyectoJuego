@@ -144,6 +144,8 @@ public class LoginAlta extends javax.swing.JFrame {
         jButton2.setText("Siguiente");
         jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton2.setContentAreaFilled(false);
+        jButton2.setIconTextGap(5);
+        jButton2.setName(""); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
