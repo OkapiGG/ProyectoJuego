@@ -2,6 +2,7 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import vista.Instrucciones;
 import vista.MenuNiveles;
 import vista.NivelDificil;
 import vista.NivelFacil;
@@ -13,6 +14,7 @@ public class ControladorMenuNiveles implements ActionListener {
     NivelFacil objNivelFacil;
     NivelMedio objNivelMedio;
     NivelDificil objNivelDificil;
+    Instrucciones objInstrucciones;
 
     public ControladorMenuNiveles(MenuNiveles objMenuNiveles) {
         this.objMenuNiveles = objMenuNiveles;
@@ -22,6 +24,8 @@ public class ControladorMenuNiveles implements ActionListener {
         this.objMenuNiveles.jButton2.addActionListener(this);
         objNivelDificil = new NivelDificil();
         this.objMenuNiveles.jButton3.addActionListener(this);
+        objInstrucciones = new Instrucciones();
+        this.objMenuNiveles.jButton4.addActionListener(this);
 
     }
 
@@ -41,6 +45,11 @@ public class ControladorMenuNiveles implements ActionListener {
             NivelDificil objNivelDificil = new NivelDificil();
             objNivelDificil.setVisible(true);
             this.objNivelDificil.dispose();
+        }
+        if(e.getSource()==this.objMenuNiveles.jButton4){
+            Instrucciones objInstrucciones = new Instrucciones();
+            objInstrucciones.setVisible(true);
+            this.objInstrucciones.dispose();
         }
     }
 
