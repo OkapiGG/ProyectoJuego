@@ -7,6 +7,7 @@ import vista.LoginAlta;
 import modelo.Login;
 import java.sql.*;
 import vista.Instrucciones;
+import vista.MenuNiveles;
 
 public class ControladorLogin implements ActionListener {
 
@@ -22,13 +23,12 @@ public class ControladorLogin implements ActionListener {
     public ControladorLogin(LoginAlta objLoginAlta) {
         this.objLoginAlta = objLoginAlta;
         objLogin = new Login();
-        this.objLoginAlta.jButton1.addActionListener(this);
-
         objOperacionesBDLogin = new OperacionesBDLogin();
         objOperacionesListaLogin = new OperacionesListaLogin();
-
         objConexion = new Conexion();
         this.objVerificador = new Verificador();
+        this.objLoginAlta.jButton1.addActionListener(this);
+        this.objLoginAlta.jButton2.addActionListener(this);
     }
 
     @Override
@@ -53,6 +53,14 @@ public class ControladorLogin implements ActionListener {
             objOperacionesBDLogin.setObjLogin(objLogin);
             objOperacionesBDLogin.create();
 
+        }
+        
+        if(e.getSource() == this.objLoginAlta.jButton2){
+            
+            MenuNiveles objMenuNiveles = new MenuNiveles();
+            objMenuNiveles.setVisible(true);
+            
+            this.objLoginAlta.dispose();
         }
     }
 
