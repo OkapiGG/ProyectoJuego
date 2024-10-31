@@ -34,22 +34,22 @@ public class ControladorMenuNiveles implements ActionListener {
         if (e.getSource() == this.objMenuNiveles.jButton1) {
             NivelFacil objNivelFacil = new NivelFacil();
             objNivelFacil.setVisible(true);
-            this.objNivelFacil.dispose();
+            this.objMenuNiveles.dispose();
         }
         if (e.getSource() == this.objMenuNiveles.jButton2) {
             NivelMedio objNivelMedio = new NivelMedio();
             objNivelMedio.setVisible(true);
-            this.objNivelMedio.dispose();
+            this.objMenuNiveles.dispose();
         }
         if (e.getSource() == this.objMenuNiveles.jButton3) {
             NivelDificil objNivelDificil = new NivelDificil();
             objNivelDificil.setVisible(true);
-            this.objNivelDificil.dispose();
+            this.objMenuNiveles.dispose();
         }
         if(e.getSource()==this.objMenuNiveles.jButton4){
             Instrucciones objInstrucciones = new Instrucciones();
             objInstrucciones.setVisible(true);
-            this.objInstrucciones.dispose();
+            this.objMenuNiveles.dispose();
         }
     }
 

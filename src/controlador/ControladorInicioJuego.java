@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import modelo.Login;
 import vista.InicioJuego;
+import vista.InicioSesion;
 import vista.LoginAlta;
 
 /**
@@ -21,6 +22,7 @@ public class ControladorInicioJuego implements ActionListener{
     public ControladorInicioJuego(InicioJuego objInicioJuego) {
        this.objInicioJuego = objInicioJuego;
        this.objInicioJuego.jButton1.addActionListener(this);
+       this.objInicioJuego.jButton2.addActionListener(this);
     }
     
     @Override
@@ -29,6 +31,14 @@ public class ControladorInicioJuego implements ActionListener{
             
             LoginAlta objLoginAlta = new LoginAlta();
             objLoginAlta.setVisible(true);
+            
+            this.objInicioJuego.dispose();
+        }
+        
+        if(e.getSource() == this.objInicioJuego.jButton2){
+            
+            InicioSesion objinicioSesion = new InicioSesion();
+            objinicioSesion.setVisible(true);
             
             this.objInicioJuego.dispose();
         }

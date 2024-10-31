@@ -19,7 +19,6 @@ public class NivelFacil extends javax.swing.JFrame {
     public NivelFacil() {
         initComponents();
         objControladorNivelFacil = new ControladorNivelFacil (this);
-        setExtendedState(JFrame.MAXIMIZED_BOTH); // Maximiza la ventana al iniciar
     }
 
     /**
@@ -110,7 +109,7 @@ public class NivelFacil extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap(225, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jButton4)
                             .addComponent(jButton7))
@@ -139,7 +138,7 @@ public class NivelFacil extends javax.swing.JFrame {
                         .addComponent(jButton3)
                         .addComponent(jButton2))
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton6)
                     .addComponent(jButton5)
