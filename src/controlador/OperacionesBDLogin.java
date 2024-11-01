@@ -5,6 +5,7 @@ import java.sql.Statement;
 import modelo.Login;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 public class OperacionesBDLogin extends CRUD {
 
@@ -21,9 +22,9 @@ public class OperacionesBDLogin extends CRUD {
             System.out.println("Insercion a la base de datos correcta");
             Statement stmt = objConexion.getConexion().createStatement();
             stmt.execute("INSERT INTO login VALUES ("
-                + objLogin.getIdusaurio() + ",'" 
-                + objLogin.getUsuario() + "','" 
-                + objLogin.getContraseña() + "')");
+                    + objLogin.getIdusaurio() + ",'"
+                    + objLogin.getUsuario() + "','"
+                    + objLogin.getContraseña() + "')");
         } catch (Exception e) {
             System.out.println("Error al insertar en la base de datos");
         }
@@ -36,12 +37,16 @@ public class OperacionesBDLogin extends CRUD {
         try {
             Statement stmt = objConexion.getConexion().createStatement();
             ResultSet resultado = stmt.executeQuery("select * from login");
+
             while (resultado.next()) {
                 objLogin = new Login();
                 objLogin.setIdusaurio(resultado.getInt("idusuario"));
                 objLogin.setUsuario(resultado.getString("nombre"));
                 objLogin.setContraseña(resultado.getString("contraseña"));
                 objListaLogin.add(objLogin); // Añade a la lista
+            }
+            if (objListaLogin.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No se encontraron registros");
             }
         } catch (Exception e) {
             System.out.println("No encontrado" + e.getMessage());

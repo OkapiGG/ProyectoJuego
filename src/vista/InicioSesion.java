@@ -6,6 +6,7 @@ package vista;
 
 import controlador.ControladorInicioJuego;
 import controlador.ControladorInicioSesion;
+import controlador.Conexion;
 
 /**
  *
@@ -14,10 +15,12 @@ import controlador.ControladorInicioSesion;
 public class InicioSesion extends javax.swing.JFrame {
 
     ControladorInicioSesion objInicioSesion;
+    Conexion objConexion;
     
     public InicioSesion() {
         initComponents();
         objInicioSesion = new ControladorInicioSesion(this);
+        objConexion = new Conexion();
     }
 
     /**
@@ -39,8 +42,9 @@ public class InicioSesion extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(java.awt.SystemColor.activeCaptionBorder);
 
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("INICIO DE SESION");
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -55,11 +59,19 @@ public class InicioSesion extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setBackground(java.awt.SystemColor.activeCaptionBorder);
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("USUARIO");
 
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("CONTRASEÑA");
 
+        jButton1.setBackground(java.awt.SystemColor.activeCaptionBorder);
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("INICIAR SESION");
+        jButton1.setBorder(null);
+        jButton1.setContentAreaFilled(false);
+        jButton1.setOpaque(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -78,10 +90,9 @@ public class InicioSesion extends javax.swing.JFrame {
                 .addGap(12, 12, 12)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jPasswordField1)))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPasswordField1))
                 .addContainerGap(389, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -99,7 +110,7 @@ public class InicioSesion extends javax.swing.JFrame {
                     .addComponent(jLabel3))
                 .addGap(61, 61, 61)
                 .addComponent(jButton1)
-                .addContainerGap(185, Short.MAX_VALUE))
+                .addContainerGap(193, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
