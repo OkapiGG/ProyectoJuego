@@ -6,6 +6,7 @@ package vista;
 
 import controlador.ControladorNivelFacil;
 import javax.swing.JFrame;
+import modelo.Pregunta;
 
 /**
  *
@@ -20,6 +21,15 @@ public class NivelFacil extends javax.swing.JFrame {
         initComponents();
         objControladorNivelFacil = new ControladorNivelFacil (this);
     }
+    
+    public void mostrarPregunta(Pregunta pregunta) {
+        jButton1.setText(pregunta.getPregunta());
+        jButton1.setText(pregunta.getOpcionA());
+        jButton1.setText(pregunta.getOpcionB());
+        jButton1.setText(pregunta.getOpcionC());
+        jButton1.setText(pregunta.getOpcionD());
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -63,6 +73,7 @@ public class NivelFacil extends javax.swing.JFrame {
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/carta1.png"))); // NOI18N
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.setPreferredSize(new java.awt.Dimension(64, 64));
         jButton1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/carta1.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -93,7 +104,6 @@ public class NivelFacil extends javax.swing.JFrame {
         jButton3.setFocusable(false);
         jButton3.setPreferredSize(new java.awt.Dimension(64, 64));
         jButton3.setRequestFocusEnabled(false);
-        jButton3.setRolloverEnabled(false);
         jButton3.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/carta1.png"))); // NOI18N
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -178,7 +188,7 @@ public class NivelFacil extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 0, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14))
         );
@@ -288,7 +298,7 @@ public class NivelFacil extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    public javax.swing.JButton jButton1;
     public javax.swing.JButton jButton10;
     public javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
