@@ -45,7 +45,7 @@ public class OperacionesBDLogin extends CRUD {
                 objLogin.setContraseña(resultado.getString("contraseña"));
                 objListaLogin.add(objLogin); // Añade a la lista
             }
-            if (objListaLogin.isEmpty()) {
+            if (!objListaLogin.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "No se encontraron registros");
             }
         } catch (Exception e) {

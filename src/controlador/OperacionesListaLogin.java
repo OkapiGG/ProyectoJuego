@@ -22,7 +22,8 @@ public class OperacionesListaLogin extends CRUD {
 
     @Override
     public ArrayList read() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return listaLogin;
+
     }
 
     @Override

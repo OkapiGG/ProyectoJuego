@@ -12,17 +12,16 @@ import java.sql.*;
  * @author Alan
  */
 public class OperacionesPreguntaBD {
+
     private Conexion conexion;
 
     public OperacionesPreguntaBD() {
         this.conexion = new Conexion();
     }
-    
+
     public Pregunta obtenerPreguntaAleatoria(String nivel) {
         String consulta = "SELECT * FROM preguntas" + nivel + " ORDER BY RANDOM() LIMIT 1";
-        try (Connection conn = conexion.getConexion();
-             PreparedStatement stmt = conn.prepareStatement(consulta);
-             ResultSet resultado = stmt.executeQuery()) {
+        try (Connection conn = conexion.getConexion(); PreparedStatement stmt = conn.prepareStatement(consulta); ResultSet resultado = stmt.executeQuery()) {
 
             if (resultado.next()) {
                 return new Pregunta(
@@ -39,6 +38,4 @@ public class OperacionesPreguntaBD {
         }
         return null;
     }
-    
-    
 }
