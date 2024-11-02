@@ -10,7 +10,7 @@ public class Conexion {
     private final String PUERTO = "5432";
     private final String DB = "login";
     private final String USER = "postgres";
-    private final String PASSWORD = "ema24"; // aqui no jala la misma base pa la dos cada que cambias la contra
+    private final String PASSWORD = "maiz564"; // aqui no jala la misma base pa la dos cada que cambias la contra
 
     public Connection getConexion() {
         Connection conexion = null;
@@ -18,7 +18,7 @@ public class Conexion {
             Class.forName("org.postgresql.Driver");
             String url = "jdbc:postgresql://" + HOST + ":" + PUERTO + "/" + DB;
             conexion = DriverManager.getConnection(url, USER, PASSWORD);
-            JOptionPane.showMessageDialog(null, "Conexion Exitosa");
+            //JOptionPane.showMessageDialog(null, "Conexion Exitosa");
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
