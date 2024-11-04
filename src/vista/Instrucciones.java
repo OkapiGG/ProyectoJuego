@@ -64,7 +64,7 @@ public class Instrucciones extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Courier New", 1, 13)); // NOI18N
         jLabel4.setForeground(java.awt.Color.black);
-        jLabel4.setText("jLabel4");
+        jLabel4.setText("la que tu consideres correcta");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
