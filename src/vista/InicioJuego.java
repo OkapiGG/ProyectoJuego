@@ -43,7 +43,7 @@ public class InicioJuego extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Logo1.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/carta1.png"))); // NOI18N
 
         jButton1.setBackground(new java.awt.Color(0, 0, 0));
         jButton1.setForeground(new java.awt.Color(255, 246, 255));
