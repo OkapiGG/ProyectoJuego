@@ -3,6 +3,7 @@ package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 import modelo.Pregunta;
 import vista.Instrucciones;
 import vista.NivelDificil;
@@ -30,6 +31,7 @@ public class ControladorNivelFacil implements ActionListener {
         this.objNivelFacil.jButton9.addActionListener(this);
         this.objNivelFacil.jButton10.addActionListener(this);
         this.objNivelFacil.jButton11.addActionListener(this);
+
     }
 
     @Override
@@ -110,6 +112,10 @@ public class ControladorNivelFacil implements ActionListener {
             objNivelDificil.setVisible(true);
 
             this.objNivelDificil.dispose();
+        }
+        // Operaciones Boton
+        if (e.getSource() == this.objNivelFacil.jButton12) {
+
         }
     }
 
