@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 import modelo.Pregunta;
@@ -21,6 +22,10 @@ public class OperacionesCartas {
     Timer timer;
     boolean mostrandoDorso = true;
     Pregunta objpregunta;
+    private int puntaje = 0;
+    private Timer timerNivel;
+    private int tiempoRestante = 30; // Tiempo total en segundos
+    private JLabel labelTiempo; // Etiqueta para mostrar el tiempo
 
     public OperacionesCartas(Timer timer, Pregunta objpregunta) {
         this.timer = timer;
@@ -67,6 +72,7 @@ public class OperacionesCartas {
         // Verifica si la respuesta es correcta
         if (respuestaUsuario != -1 && opciones[respuestaUsuario].equals(respuestaCorrectaTexto)) {
             JOptionPane.showMessageDialog(null, "¡Correcto!", "Resultado", JOptionPane.INFORMATION_MESSAGE);
+            puntaje += 10;
         } else {
             JOptionPane.showMessageDialog(null, "Incorrecto. La respuesta correcta es: " + respuestaCorrectaTexto, "Resultado", JOptionPane.ERROR_MESSAGE);
         }
@@ -108,5 +114,35 @@ public class OperacionesCartas {
             }
         });
         timer.start();
+    }
+
+    public void iniciarNivel() {
+        labelTiempo = new JLabel("Tiempo restante: " + tiempoRestante + "s");
+        // Añade labelTiempo a la interfaz gráfica en el lugar adecuado
+
+        timerNivel = new Timer(1000, new ActionListener() { // 1000 ms = 1 segundo
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tiempoRestante--;
+                labelTiempo.setText("Tiempo restante: " + tiempoRestante + "s");
+
+                if (tiempoRestante <= 0) {
+                    timerNivel.stop(); // Detener el timer cuando se acaba el tiempo
+                    terminarNivel(); // Llama a un método que termine el nivel
+                }
+            }
+        });
+        timerNivel.start(); // Inicia el conteo regresivo
+    }
+
+    public void terminarNivel() {
+        JOptionPane.showMessageDialog(null, "Tiempo agotado. Fin del nivel.", "Fin del Tiempo", JOptionPane.INFORMATION_MESSAGE);
+        // Bloquear botones o deshabilitar respuestas
+        deshabilitarBotones(); // Método que desactiva los botones de las preguntas
+    }
+
+    private void deshabilitarBotones() {
+        // Aquí desactiva los botones de las cartas o preguntas para evitar más respuestas
+        // Ejemplo: botonCarta1.setEnabled(false);
     }
 }

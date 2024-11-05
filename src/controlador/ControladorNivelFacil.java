@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 import modelo.Pregunta;
@@ -20,6 +21,8 @@ public class ControladorNivelFacil implements ActionListener {
     Timer timer;
     boolean mostrandoDorso = true;
     OperacionesCartas objOperacionesCartas;
+    ControladorPuntaje objControladorPuntaje;
+    JLabel objLabelTime;
 
     public ControladorNivelFacil(NivelFacil objControladorNivelFacil) {
         this.objNivelFacil = objControladorNivelFacil;
@@ -37,6 +40,7 @@ public class ControladorNivelFacil implements ActionListener {
         this.objNivelFacil.jButton9.addActionListener(this);
         this.objNivelFacil.jButton10.addActionListener(this);
         this.objNivelFacil.jButton11.addActionListener(this);
+        
     }
 
     @Override
@@ -46,6 +50,7 @@ public class ControladorNivelFacil implements ActionListener {
         if (e.getSource() == this.objNivelFacil.jButton1) {
             objpregunta = objOperacionesPreguntaBD.obtenerPreguntaAleatoria("faciles");
             objOperacionesCartas.mostrarPregunta(objpregunta, objNivelFacil.jButton1);
+            
         }
         if (e.getSource() == this.objNivelFacil.jButton2) {
             objpregunta = objOperacionesPreguntaBD.obtenerPreguntaAleatoria("faciles");

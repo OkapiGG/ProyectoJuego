@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import vista.LoginAlta;
 import modelo.Login;
 import java.sql.*;
+import javax.swing.JOptionPane;
 import vista.Instrucciones;
 import vista.MenuNiveles;
 
@@ -19,6 +20,7 @@ public class ControladorLogin implements ActionListener {
     Login objLogin;
     Conexion objConexion;
     Verificador objVerificador;
+    int verificaVacio = 0;
 
     public ControladorLogin(LoginAlta objLoginAlta) {
         this.objLoginAlta = objLoginAlta;
@@ -53,14 +55,19 @@ public class ControladorLogin implements ActionListener {
             objOperacionesBDLogin.setObjLogin(objLogin);
             objOperacionesBDLogin.create();
 
+            verificaVacio = 1;
         }
-        
-        if(e.getSource() == this.objLoginAlta.jButton2){
-            
-            MenuNiveles objMenuNiveles = new MenuNiveles();
-            objMenuNiveles.setVisible(true);
-            
-            this.objLoginAlta.dispose();
+
+        if (e.getSource() == this.objLoginAlta.jButton2) {
+            if (verificaVacio == 1) {
+                MenuNiveles objMenuNiveles = new MenuNiveles();
+                objMenuNiveles.setVisible(true);
+
+                this.objLoginAlta.dispose();
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Rellena los datos");
+            }
         }
     }
 
