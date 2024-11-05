@@ -2,6 +2,8 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 import modelo.Pregunta;
@@ -15,11 +17,15 @@ public class ControladorNivelFacil implements ActionListener {
     NivelDificil objNivelDificil;
     OperacionesPreguntaBD objOperacionesPreguntaBD;
     Pregunta objpregunta;
+    Timer timer;
+    boolean mostrandoDorso = true;
+    OperacionesCartas objOperacionesCartas;
 
     public ControladorNivelFacil(NivelFacil objControladorNivelFacil) {
         this.objNivelFacil = objControladorNivelFacil;
         objNivelDificil = new NivelDificil();
         objOperacionesPreguntaBD = new OperacionesPreguntaBD();
+        objOperacionesCartas = new OperacionesCartas(this.timer, this.objpregunta);
         this.objNivelFacil.jButton1.addActionListener(this);
         this.objNivelFacil.jButton2.addActionListener(this);
         this.objNivelFacil.jButton3.addActionListener(this);
@@ -31,136 +37,64 @@ public class ControladorNivelFacil implements ActionListener {
         this.objNivelFacil.jButton9.addActionListener(this);
         this.objNivelFacil.jButton10.addActionListener(this);
         this.objNivelFacil.jButton11.addActionListener(this);
-
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        JButton botonPresionado = (JButton) e.getSource();
+
         if (e.getSource() == this.objNivelFacil.jButton1) {
             objpregunta = objOperacionesPreguntaBD.obtenerPreguntaAleatoria("faciles");
-            if (objpregunta != null) {
-                mostrarPregunta(objpregunta);
-                //objNivelFacil.mostrarPregunta(objpregunta);
-            }
+            objOperacionesCartas.mostrarPregunta(objpregunta, objNivelFacil.jButton1);
         }
         if (e.getSource() == this.objNivelFacil.jButton2) {
             objpregunta = objOperacionesPreguntaBD.obtenerPreguntaAleatoria("faciles");
-            if (objpregunta != null) {
-                mostrarPregunta(objpregunta);
-                //objNivelFacil.mostrarPregunta(objpregunta);
-            }
+            objOperacionesCartas.mostrarPregunta(objpregunta, objNivelFacil.jButton2);
         }
         if (e.getSource() == this.objNivelFacil.jButton3) {
             objpregunta = objOperacionesPreguntaBD.obtenerPreguntaAleatoria("faciles");
-            if (objpregunta != null) {
-                mostrarPregunta(objpregunta);
-                //objNivelFacil.mostrarPregunta(objpregunta);
-            }
+            objOperacionesCartas.mostrarPregunta(objpregunta, objNivelFacil.jButton3);
         }
         if (e.getSource() == this.objNivelFacil.jButton4) {
             objpregunta = objOperacionesPreguntaBD.obtenerPreguntaAleatoria("faciles");
-            if (objpregunta != null) {
-                mostrarPregunta(objpregunta);
-                //objNivelFacil.mostrarPregunta(objpregunta);
-            }
+            objOperacionesCartas.mostrarPregunta(objpregunta, objNivelFacil.jButton4);
         }
         if (e.getSource() == this.objNivelFacil.jButton5) {
             objpregunta = objOperacionesPreguntaBD.obtenerPreguntaAleatoria("faciles");
-            if (objpregunta != null) {
-                mostrarPregunta(objpregunta);
-                //objNivelFacil.mostrarPregunta(objpregunta);
-            }
+            objOperacionesCartas.mostrarPregunta(objpregunta, objNivelFacil.jButton5);
         }
         if (e.getSource() == this.objNivelFacil.jButton6) {
             objpregunta = objOperacionesPreguntaBD.obtenerPreguntaAleatoria("faciles");
-            if (objpregunta != null) {
-                mostrarPregunta(objpregunta);
-                //objNivelFacil.mostrarPregunta(objpregunta);
-            }
+            objOperacionesCartas.mostrarPregunta(objpregunta, objNivelFacil.jButton6);
         }
         if (e.getSource() == this.objNivelFacil.jButton7) {
-            objpregunta = objOperacionesPreguntaBD.obtenerPreguntaAleatoria("faciles");
-            if (objpregunta != null) {
-                mostrarPregunta(objpregunta);
-                //objNivelFacil.mostrarPregunta(objpregunta);
-            }
+           objpregunta = objOperacionesPreguntaBD.obtenerPreguntaAleatoria("faciles");
+            objOperacionesCartas.mostrarPregunta(objpregunta, objNivelFacil.jButton7);
         }
         if (e.getSource() == this.objNivelFacil.jButton8) {
             objpregunta = objOperacionesPreguntaBD.obtenerPreguntaAleatoria("faciles");
-            if (objpregunta != null) {
-                mostrarPregunta(objpregunta);
-                //objNivelFacil.mostrarPregunta(objpregunta);
-            }
+            objOperacionesCartas.mostrarPregunta(objpregunta, objNivelFacil.jButton8);
         }
         if (e.getSource() == this.objNivelFacil.jButton9) {
             objpregunta = objOperacionesPreguntaBD.obtenerPreguntaAleatoria("faciles");
-            if (objpregunta != null) {
-                mostrarPregunta(objpregunta);
-                //objNivelFacil.mostrarPregunta(objpregunta);
-            }
+            objOperacionesCartas.mostrarPregunta(objpregunta, objNivelFacil.jButton9);
         }
 
         if (e.getSource() == this.objNivelFacil.jButton10) {
             Instrucciones objInstrucciones = new Instrucciones();
             objInstrucciones.setVisible(true);
-
             this.objNivelFacil.dispose();
         }
 
         if (e.getSource() == this.objNivelFacil.jButton11) {
             NivelDificil objNivelDificil = new NivelDificil();
             objNivelDificil.setVisible(true);
-
             this.objNivelDificil.dispose();
         }
-        // Operaciones Boton
+
+        // Operaciones para jButton12 (si tienes lógica adicional)
         if (e.getSource() == this.objNivelFacil.jButton12) {
-
-        }
-    }
-
-    public void mostrarPregunta(Pregunta objpregunta) {
-        String[] opciones = {
-            objpregunta.getOpcionA(),
-            objpregunta.getOpcionB(),
-            objpregunta.getOpcionC(),
-            objpregunta.getOpcionD()
-        };
-
-        // Muestra el cuadro de diálogo con la pregunta y las opciones
-        int respuestaUsuario = JOptionPane.showOptionDialog(
-                null,
-                objpregunta.getPregunta(), // Texto de la pregunta
-                "Pregunta", // Título del diálogo
-                JOptionPane.DEFAULT_OPTION,
-                JOptionPane.QUESTION_MESSAGE,
-                null,
-                opciones, // Arreglo de opciones de respuesta
-                opciones[0] // Respuesta predeterminada
-        );
-
-        // Obtiene el texto de la respuesta correcta basado en la letra
-        String respuestaCorrectaTexto = "";
-        switch (objpregunta.getRespuestaCorrecta()) {
-            case 'A':
-                respuestaCorrectaTexto = objpregunta.getOpcionA();
-                break;
-            case 'B':
-                respuestaCorrectaTexto = objpregunta.getOpcionB();
-                break;
-            case 'C':
-                respuestaCorrectaTexto = objpregunta.getOpcionC();
-                break;
-            case 'D':
-                respuestaCorrectaTexto = objpregunta.getOpcionD();
-                break;
-        }
-
-        // Verifica si la respuesta es correcta
-        if (respuestaUsuario != -1 && opciones[respuestaUsuario].equals(respuestaCorrectaTexto)) {
-            JOptionPane.showMessageDialog(null, "¡Correcto!", "Resultado", JOptionPane.INFORMATION_MESSAGE);
-        } else {
-            JOptionPane.showMessageDialog(null, "Incorrecto. La respuesta correcta es: " + respuestaCorrectaTexto, "Resultado", JOptionPane.ERROR_MESSAGE);
+            // Lógica para jButton12 aquí
         }
     }
 
