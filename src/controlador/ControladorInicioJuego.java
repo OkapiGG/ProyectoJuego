@@ -14,27 +14,26 @@ import vista.LoginAlta;
  *
  * @author Alan
  */
-public class ControladorInicioJuego implements ActionListener{
+public class ControladorInicioJuego implements ActionListener {
 
     InicioJuego objInicioJuego;
-    
+
     public ControladorInicioJuego(InicioJuego objInicioJuego) {
-       this.objInicioJuego = objInicioJuego;
-       this.objInicioJuego.jButton1.addActionListener(this);
-       
+        this.objInicioJuego = objInicioJuego;
+        this.objInicioJuego.jButton1.addActionListener(this);
+
     }
-    
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.objInicioJuego.jButton1) {
-            
+
             LoginAlta objLoginAlta = new LoginAlta();
             objLoginAlta.setVisible(true);
-            
+
             this.objInicioJuego.dispose();
         }
-        
-        
+
     }
-    
+
 }

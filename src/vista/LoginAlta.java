@@ -103,7 +103,10 @@ public class LoginAlta extends javax.swing.JFrame {
         jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton2.setDefaultCapable(false);
         jButton2.setName(""); // NOI18N
-        jButton2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/siguiente.png"))); // NOI18N
+        jButton2.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono-next-50.png"))); // NOI18N
+        jButton2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono-next-50.png"))); // NOI18N
+        jButton2.setSelected(true);
+        jButton2.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/siguiente.png"))); // NOI18N
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);

@@ -5,6 +5,7 @@
 package vista;
 
 import controlador.ControladorNivelFacil;
+import static java.lang.Thread.sleep;
 import javax.swing.JFrame;
 import modelo.Pregunta;
 
@@ -14,6 +15,12 @@ import modelo.Pregunta;
  */
 public class NivelFacil extends javax.swing.JFrame {
 
+    // Variables para el temporizador
+    int miliseg = 0;
+    int seg = 0;
+    int min = 0;
+    boolean estado = true;
+    
     ControladorNivelFacil objControladorNivelFacil;
 
     /**
@@ -55,13 +62,13 @@ public class NivelFacil extends javax.swing.JFrame {
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
+        label1 = new javax.swing.JLabel();
         jButton11 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        label2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(51, 22, 190));
+        jPanel1.setBackground(new java.awt.Color(75, 0, 255));
 
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/carta1.png"))); // NOI18N
         jButton4.setBorderPainted(false);
@@ -75,6 +82,7 @@ public class NivelFacil extends javax.swing.JFrame {
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/carta1.png"))); // NOI18N
         jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.setPreferredSize(new java.awt.Dimension(64, 64));
         jButton1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/carta1.png"))); // NOI18N
@@ -147,18 +155,40 @@ public class NivelFacil extends javax.swing.JFrame {
         jButton9.setBorderPainted(false);
         jButton9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jButton10.setText("Regresar");
+        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono-72.png"))); // NOI18N
+        jButton10.setBorderPainted(false);
+        jButton10.setContentAreaFilled(false);
+        jButton10.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono-back-50.png"))); // NOI18N
+        jButton10.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono-72.png"))); // NOI18N
         jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton10ActionPerformed(evt);
             }
         });
 
-        jButton11.setText("Siguiente");
+        label1.setBackground(new java.awt.Color(51, 51, 51));
+        label1.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        label1.setForeground(new java.awt.Color(0, 0, 0));
+        label1.setText("00 : 00 : 00");
 
-        jButton12.setText("Tiempo");
+        jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-play-72.png"))); // NOI18N
+        jButton11.setBorder(null);
+        jButton11.setBorderPainted(false);
+        jButton11.setContentAreaFilled(false);
+        jButton11.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono-play-50 (1).png"))); // NOI18N
+        jButton11.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-play-72 (1).png"))); // NOI18N
+        jButton11.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-play-50.png"))); // NOI18N
+        jButton11.setSelected(true);
+        jButton11.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-play-72.png"))); // NOI18N
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
 
-        jLabel1.setText("jLabel1");
+        label2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        label2.setForeground(new java.awt.Color(0, 0, 0));
+        label2.setText("0000");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -167,40 +197,36 @@ public class NivelFacil extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(127, 127, 127)
-                        .addComponent(jButton10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 157, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(44, 44, 44)
-                                .addComponent(jButton12))
-                            .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(34, 34, 34)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(145, 145, 145)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(105, 105, 105)))
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 155, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton11)
-                        .addGap(158, 158, 158))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(67, 67, 67))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(104, 104, 104))))
+                        .addGap(9, 9, 9)
+                        .addComponent(label1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(label2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(132, 132, 132)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton11)
+                            .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(145, 145, 145)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(120, 120, 120)
+                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(67, 67, 67))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(118, 118, 118)
+                .addComponent(jButton10)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -214,7 +240,9 @@ public class NivelFacil extends javax.swing.JFrame {
                             .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jButton12))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(label1)
+                        .addComponent(label2)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(113, 113, 113)
@@ -224,15 +252,12 @@ public class NivelFacil extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(152, 152, 152)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(39, 39, 39)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton10)
                     .addComponent(jButton11))
-                .addGap(18, 18, 18))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -277,6 +302,45 @@ public class NivelFacil extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton8ActionPerformed
 
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        // TODO add your handling code here:
+         estado = true;
+        Thread hilo = new Thread() {
+            public void run() {
+                for (;;) {
+                    if (estado == true) {
+                        try {
+                            sleep(1);
+                            if (miliseg >= 1000) {
+                                miliseg = 0;
+                                seg++;
+                            }
+                            if (seg >= 60) {
+                                miliseg = 0;
+                                seg = 0;
+                                min++;
+                            }
+                            if (min >= 60) {
+                                miliseg = 0;
+                                seg = 0;
+                                min = 0;
+                            }
+                            label1.setText(":" + min + " : " + seg + " : ");
+                            label2.setText(":" + miliseg);
+                            miliseg++;
+                        } catch (Exception e) {
+
+                        }
+                    } else {
+                        break;
+                    }
+
+                }
+            }
+        };
+        hilo.start();
+    }//GEN-LAST:event_jButton11ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -316,7 +380,6 @@ public class NivelFacil extends javax.swing.JFrame {
     public javax.swing.JButton jButton1;
     public javax.swing.JButton jButton10;
     public javax.swing.JButton jButton11;
-    public javax.swing.JButton jButton12;
     public javax.swing.JButton jButton2;
     public javax.swing.JButton jButton3;
     public javax.swing.JButton jButton4;
@@ -325,10 +388,11 @@ public class NivelFacil extends javax.swing.JFrame {
     public javax.swing.JButton jButton7;
     public javax.swing.JButton jButton8;
     public javax.swing.JButton jButton9;
-    public javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JPopupMenu jPopupMenu2;
     private javax.swing.JPopupMenu jPopupMenu3;
+    public javax.swing.JLabel label1;
+    public javax.swing.JLabel label2;
     // End of variables declaration//GEN-END:variables
 }

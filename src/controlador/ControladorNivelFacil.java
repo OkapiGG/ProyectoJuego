@@ -11,6 +11,7 @@ import modelo.Pregunta;
 import vista.Instrucciones;
 import vista.NivelDificil;
 import vista.NivelFacil;
+import vista.MenuNiveles;
 
 public class ControladorNivelFacil implements ActionListener {
 
@@ -22,7 +23,6 @@ public class ControladorNivelFacil implements ActionListener {
     boolean mostrandoDorso = true;
     OperacionesCartas objOperacionesCartas;
     ControladorPuntaje objControladorPuntaje;
-    JLabel objLabelTime;
 
     public ControladorNivelFacil(NivelFacil objControladorNivelFacil) {
         this.objNivelFacil = objControladorNivelFacil;
@@ -40,7 +40,7 @@ public class ControladorNivelFacil implements ActionListener {
         this.objNivelFacil.jButton9.addActionListener(this);
         this.objNivelFacil.jButton10.addActionListener(this);
         this.objNivelFacil.jButton11.addActionListener(this);
-        
+
     }
 
     @Override
@@ -50,7 +50,7 @@ public class ControladorNivelFacil implements ActionListener {
         if (e.getSource() == this.objNivelFacil.jButton1) {
             objpregunta = objOperacionesPreguntaBD.obtenerPreguntaAleatoria("faciles");
             objOperacionesCartas.mostrarPregunta(objpregunta, objNivelFacil.jButton1);
-            
+
         }
         if (e.getSource() == this.objNivelFacil.jButton2) {
             objpregunta = objOperacionesPreguntaBD.obtenerPreguntaAleatoria("faciles");
@@ -73,7 +73,7 @@ public class ControladorNivelFacil implements ActionListener {
             objOperacionesCartas.mostrarPregunta(objpregunta, objNivelFacil.jButton6);
         }
         if (e.getSource() == this.objNivelFacil.jButton7) {
-           objpregunta = objOperacionesPreguntaBD.obtenerPreguntaAleatoria("faciles");
+            objpregunta = objOperacionesPreguntaBD.obtenerPreguntaAleatoria("faciles");
             objOperacionesCartas.mostrarPregunta(objpregunta, objNivelFacil.jButton7);
         }
         if (e.getSource() == this.objNivelFacil.jButton8) {
@@ -86,21 +86,15 @@ public class ControladorNivelFacil implements ActionListener {
         }
 
         if (e.getSource() == this.objNivelFacil.jButton10) {
-            Instrucciones objInstrucciones = new Instrucciones();
-            objInstrucciones.setVisible(true);
+            MenuNiveles objMenuNiveles = new MenuNiveles();
+            objMenuNiveles.setVisible(true);
             this.objNivelFacil.dispose();
         }
 
         if (e.getSource() == this.objNivelFacil.jButton11) {
-            NivelDificil objNivelDificil = new NivelDificil();
-            objNivelDificil.setVisible(true);
-            this.objNivelDificil.dispose();
+
         }
 
-        // Operaciones para jButton12 (si tienes lógica adicional)
-        if (e.getSource() == this.objNivelFacil.jButton12) {
-            // Lógica para jButton12 aquí
-        }
     }
 
 }
