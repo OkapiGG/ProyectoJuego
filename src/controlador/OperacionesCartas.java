@@ -116,32 +116,13 @@ public class OperacionesCartas {
         timer.start();
     }
 
-    public void iniciarNivel() {
-        labelTiempo = new JLabel("Tiempo restante: " + tiempoRestante + "s");
-        // Añade labelTiempo a la interfaz gráfica en el lugar adecuado
-
-        timerNivel = new Timer(1000, new ActionListener() { // 1000 ms = 1 segundo
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                tiempoRestante--;
-                labelTiempo.setText("Tiempo restante: " + tiempoRestante + "s");
-
-                if (tiempoRestante <= 0) {
-                    timerNivel.stop(); // Detener el timer cuando se acaba el tiempo
-                    terminarNivel(); // Llama a un método que termine el nivel
-                }
-            }
-        });
-        timerNivel.start(); // Inicia el conteo regresivo
-    }
-
     public void terminarNivel() {
         JOptionPane.showMessageDialog(null, "Tiempo agotado. Fin del nivel.", "Fin del Tiempo", JOptionPane.INFORMATION_MESSAGE);
         // Bloquear botones o deshabilitar respuestas
         deshabilitarBotones(); // Método que desactiva los botones de las preguntas
     }
 
-    private void deshabilitarBotones() {
+    public void deshabilitarBotones() {
         // Aquí desactiva los botones de las cartas o preguntas para evitar más respuestas
         // Ejemplo: botonCarta1.setEnabled(false);
     }

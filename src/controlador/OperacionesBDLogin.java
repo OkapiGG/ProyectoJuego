@@ -25,6 +25,7 @@ public class OperacionesBDLogin extends CRUD {
                     + objLogin.getIdusaurio() + ",'"
                     + objLogin.getUsuario() + "','"
                     + objLogin.getContraseña() + "')");
+            JOptionPane.showMessageDialog(null, "Registro Exitoso");
         } catch (Exception e) {
             System.out.println("Error al insertar en la base de datos");
         }

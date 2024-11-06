@@ -4,17 +4,20 @@
  */
 package vista;
 
+import controlador.ControladorNivelFacil;
+import controlador.ControladorPuntaje;
+
 /**
  *
  * @author Alan
  */
 public class Puntaje extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Puntaje
-     */
+    ControladorPuntaje objControladorPuntaje;
+    
     public Puntaje() {
         initComponents();
+        objControladorPuntaje = new ControladorPuntaje(this);
     }
 
     /**
@@ -147,8 +150,8 @@ public class Puntaje extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    public javax.swing.JButton jButton1;
+    public javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

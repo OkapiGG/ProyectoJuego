@@ -7,6 +7,7 @@ package vista;
 import controlador.ControladorNivelFacil;
 import static java.lang.Thread.sleep;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import modelo.Pregunta;
 
 /**
@@ -20,7 +21,7 @@ public class NivelFacil extends javax.swing.JFrame {
     int seg = 0;
     int min = 0;
     boolean estado = true;
-    
+
     ControladorNivelFacil objControladorNivelFacil;
 
     /**
@@ -29,14 +30,6 @@ public class NivelFacil extends javax.swing.JFrame {
     public NivelFacil() {
         initComponents();
         objControladorNivelFacil = new ControladorNivelFacil(this);
-    }
-
-    public void mostrarPregunta(Pregunta pregunta) {
-        jButton1.setText(pregunta.getPregunta());
-        jButton1.setText(pregunta.getOpcionA());
-        jButton1.setText(pregunta.getOpcionB());
-        jButton1.setText(pregunta.getOpcionC());
-        jButton1.setText(pregunta.getOpcionD());
     }
 
     /**
@@ -304,7 +297,10 @@ public class NivelFacil extends javax.swing.JFrame {
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         // TODO add your handling code here:
-         estado = true;
+        /*jButton11.setEnabled(false);
+
+        estado = true;
+        int limiteTiempo = 20;
         Thread hilo = new Thread() {
             public void run() {
                 for (;;) {
@@ -328,6 +324,14 @@ public class NivelFacil extends javax.swing.JFrame {
                             label1.setText(":" + min + " : " + seg + " : ");
                             label2.setText(":" + miliseg);
                             miliseg++;
+
+                            if ((min * 60 + seg) >= limiteTiempo) {
+                                estado = false; // Detiene el temporizador
+                                JOptionPane.showMessageDialog(null, "¡Tiempo agotado!"); // Muestra un mensaje
+                                jButton11.setEnabled(true); // Habilita el botón nuevamente si es necesario
+                                break;
+                            }
+
                         } catch (Exception e) {
 
                         }
@@ -338,7 +342,7 @@ public class NivelFacil extends javax.swing.JFrame {
                 }
             }
         };
-        hilo.start();
+        hilo.start();*/
     }//GEN-LAST:event_jButton11ActionPerformed
 
     /**
