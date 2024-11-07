@@ -13,15 +13,15 @@ import java.sql.*;
  */
 public class OperacionesPreguntaBD {
 
-    private Conexion conexion;
+    Conexion objconexion;
 
     public OperacionesPreguntaBD() {
-        this.conexion = new Conexion();
+        this.objconexion = Conexion.getInstance();
     }
 
     public Pregunta obtenerPreguntaAleatoria(String nivel) {
         String consulta = "SELECT * FROM preguntas" + nivel + " ORDER BY RANDOM() LIMIT 1";
-        try (Connection conn = conexion.getConexion(); PreparedStatement stmt = conn.prepareStatement(consulta); ResultSet resultado = stmt.executeQuery()) {
+        try (Connection conn = objconexion.getConexion(); PreparedStatement stmt = conn.prepareStatement(consulta); ResultSet resultado = stmt.executeQuery()) {
 
             if (resultado.next()) {
                 return new Pregunta(

@@ -24,10 +24,10 @@ public class ControladorLogin implements ActionListener {
 
     public ControladorLogin(LoginAlta objLoginAlta) {
         this.objLoginAlta = objLoginAlta;
+        objConexion = Conexion.getInstance();
         objLogin = new Login();
         objOperacionesBDLogin = new OperacionesBDLogin();
         objOperacionesListaLogin = new OperacionesListaLogin();
-        objConexion = new Conexion();
         this.objVerificador = new Verificador();
         this.objLoginAlta.jButton1.addActionListener(this);
         this.objLoginAlta.jButton2.addActionListener(this);

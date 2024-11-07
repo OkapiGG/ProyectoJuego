@@ -13,7 +13,7 @@ public class OperacionesBDLogin extends CRUD {
     Conexion objConexion;
 
     public OperacionesBDLogin() {
-        objConexion = new Conexion();
+        this.objConexion = Conexion.getInstance();
     }
 
     @Override
