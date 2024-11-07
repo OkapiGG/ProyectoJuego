@@ -22,7 +22,6 @@ public class OperacionesCartas {
     Timer timer;
     boolean mostrandoDorso = true;
     Pregunta objpregunta;
-    private int puntaje = 0;
     private Timer timerNivel;
     private int tiempoRestante = 30; // Tiempo total en segundos
     private JLabel labelTiempo; // Etiqueta para mostrar el tiempo
@@ -72,7 +71,6 @@ public class OperacionesCartas {
         // Verifica si la respuesta es correcta
         if (respuestaUsuario != -1 && opciones[respuestaUsuario].equals(respuestaCorrectaTexto)) {
             JOptionPane.showMessageDialog(null, "¡Correcto!", "Resultado", JOptionPane.INFORMATION_MESSAGE);
-            puntaje += 10;
         } else {
             JOptionPane.showMessageDialog(null, "Incorrecto. La respuesta correcta es: " + respuestaCorrectaTexto, "Resultado", JOptionPane.ERROR_MESSAGE);
         }
@@ -116,14 +114,4 @@ public class OperacionesCartas {
         timer.start();
     }
 
-    public void terminarNivel() {
-        JOptionPane.showMessageDialog(null, "Tiempo agotado. Fin del nivel.", "Fin del Tiempo", JOptionPane.INFORMATION_MESSAGE);
-        // Bloquear botones o deshabilitar respuestas
-        deshabilitarBotones(); // Método que desactiva los botones de las preguntas
-    }
-
-    public void deshabilitarBotones() {
-        // Aquí desactiva los botones de las cartas o preguntas para evitar más respuestas
-        // Ejemplo: botonCarta1.setEnabled(false);
-    }
 }

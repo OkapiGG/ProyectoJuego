@@ -101,7 +101,7 @@ public class ControladorNivelFacil implements ActionListener {
             objNivelFacil.jButton11.setEnabled(false);
 
             estado = true;
-            int limiteTiempo = 20;
+            int limiteTiempo = 5;
             Thread hilo = new Thread() {
                 public void run() {
                     for (;;) {
@@ -153,6 +153,7 @@ public class ControladorNivelFacil implements ActionListener {
         Puntaje objPuntaje = new Puntaje();
         objPuntaje.setLocationRelativeTo(objNivelFacil); // Centrar el JDialog sobre la ventana del nivel fácil
         objPuntaje.setVisible(true); // Hacer visible el JDialog
+        objNivelFacil.dispose();
     }
-
+  
 }

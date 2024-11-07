@@ -19,9 +19,14 @@ import vista.Puntaje;
 public class ControladorPuntaje implements ActionListener{
 
     Puntaje objPuntaje;
+    NivelFacil objNivelFacil;
+    MenuNiveles objMenuNiveles;
+    ControladorNivelFacil objControladorNivelFacil;
     
     public ControladorPuntaje(Puntaje objControladorPuntaje) {
         this.objPuntaje = objControladorPuntaje;
+        this.objMenuNiveles = new MenuNiveles();
+        this.objNivelFacil = new NivelFacil();
         this.objPuntaje.jButton1.addActionListener(this);
         this.objPuntaje.jButton2.addActionListener(this);
     }
@@ -30,20 +35,15 @@ public class ControladorPuntaje implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         
         if (e.getSource() == this.objPuntaje.jButton1) {
-            NivelFacil objNivelFacil = new NivelFacil();
             objNivelFacil.setVisible(true);
-
             this.objPuntaje.dispose();
         }
         
         if (e.getSource() == this.objPuntaje.jButton2) {
-            MenuNiveles objMenuNiveles = new MenuNiveles();
             objMenuNiveles.setVisible(true);
-
             this.objPuntaje.dispose();
+            objNivelFacil.dispose();         
         }
     }
-    
-    
     
 }
