@@ -21,8 +21,8 @@ public class OperacionesPreguntaBD {
 
     public Pregunta obtenerPreguntaAleatoria(String nivel) {
         String consulta = "SELECT * FROM preguntas" + nivel + " ORDER BY RANDOM() LIMIT 1";
-        try (Connection conn = objconexion.getConexion(); PreparedStatement stmt = conn.prepareStatement(consulta); ResultSet resultado = stmt.executeQuery()) {
-
+        Connection conn = objconexion.getConexion();
+        try (PreparedStatement stmt = conn.prepareStatement(consulta); ResultSet resultado = stmt.executeQuery()) {
             if (resultado.next()) {
                 return new Pregunta(
                         resultado.getString("pregunta"),
