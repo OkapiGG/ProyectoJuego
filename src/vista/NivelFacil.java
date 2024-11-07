@@ -61,7 +61,7 @@ public class NivelFacil extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(75, 0, 255));
+        jPanel1.setBackground(new java.awt.Color(68, 71, 190));
 
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/carta1.png"))); // NOI18N
         jButton4.setBorderPainted(false);
