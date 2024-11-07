@@ -13,6 +13,7 @@ public class Conexion {
     private final String PASSWORD = "ema24"; // aqui no jala la misma base pa la dos cada que cambias la contra
 
     public Connection getConexion() {
+
         Connection conexion = null;
         try {
             Class.forName("org.postgresql.Driver");
