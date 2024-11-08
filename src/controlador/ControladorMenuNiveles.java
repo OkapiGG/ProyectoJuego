@@ -11,22 +11,13 @@ import vista.NivelMedio;
 public class ControladorMenuNiveles implements ActionListener {
 
     MenuNiveles objMenuNiveles;
-    NivelFacil objNivelFacil;
-    NivelMedio objNivelMedio;
-    NivelDificil objNivelDificil;
-    Instrucciones objInstrucciones;
 
     public ControladorMenuNiveles(MenuNiveles objMenuNiveles) {
         this.objMenuNiveles = objMenuNiveles;
-        objNivelFacil = new NivelFacil();
         this.objMenuNiveles.jButton1.addActionListener(this);
-        objNivelMedio = new NivelMedio();
         this.objMenuNiveles.jButton2.addActionListener(this);
-        objNivelDificil = new NivelDificil();
         this.objMenuNiveles.jButton3.addActionListener(this);
-        objInstrucciones = new Instrucciones();
         this.objMenuNiveles.jButton4.addActionListener(this);
-
     }
 
     @Override
