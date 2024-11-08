@@ -46,7 +46,7 @@ public class ControladorLogin implements ActionListener {
             Login objLogin = new Login();
             objLogin.setIdusaurio(nuevoId);
             objLogin.setUsuario(objLoginAlta.jTextField1.getText());
-            objLogin.setContraseña(objLoginAlta.jTextField2.getText());
+            objLogin.setContraseña(objLoginAlta.jPasswordField1.getText());
             //objLoginAlta.getObjListaLogin().add(objLogin);
 
             objOperacionesListaLogin.setObjLogin(objLogin);
@@ -88,7 +88,7 @@ public class ControladorLogin implements ActionListener {
     public boolean verificaCampos() {
         if (!objVerificador.verificaCajaTextoVacio(this.objLoginAlta.jTextField1)) {
             return false;
-        } else if (!objVerificador.verificaCajaTextoVacio(this.objLoginAlta.jTextField2)) {
+        } else if (!objVerificador.verificaCajaTextoVacio(this.objLoginAlta.jPasswordField1)) {
             return false;
         }
         return true;
