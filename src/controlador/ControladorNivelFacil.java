@@ -31,6 +31,7 @@ public class ControladorNivelFacil implements ActionListener {
         objOperacionesPreguntaBD = new OperacionesPreguntaBD();
         objOperacionesCartas = new OperacionesCartas(this.timer, this.objpregunta);
         iniciarConexionArduino();
+        desactivarBotones();
         this.objNivelFacil.jButton1.addActionListener(this);
         this.objNivelFacil.jButton2.addActionListener(this);
         this.objNivelFacil.jButton3.addActionListener(this);
@@ -107,6 +108,32 @@ public class ControladorNivelFacil implements ActionListener {
         }
     }
 
+    private void desactivarBotones() {
+        // Desactiva todos los botones al inicio
+        objNivelFacil.jButton1.setEnabled(false);
+        objNivelFacil.jButton2.setEnabled(false);
+        objNivelFacil.jButton3.setEnabled(false);
+        objNivelFacil.jButton4.setEnabled(false);
+        objNivelFacil.jButton5.setEnabled(false);
+        objNivelFacil.jButton6.setEnabled(false);
+        objNivelFacil.jButton7.setEnabled(false);
+        objNivelFacil.jButton8.setEnabled(false);
+        objNivelFacil.jButton9.setEnabled(false);
+    }
+
+    private void activarBotones() {
+        // Activa todos los botones una vez que comienza el juego
+        objNivelFacil.jButton1.setEnabled(true);
+        objNivelFacil.jButton2.setEnabled(true);
+        objNivelFacil.jButton3.setEnabled(true);
+        objNivelFacil.jButton4.setEnabled(true);
+        objNivelFacil.jButton5.setEnabled(true);
+        objNivelFacil.jButton6.setEnabled(true);
+        objNivelFacil.jButton7.setEnabled(true);
+        objNivelFacil.jButton8.setEnabled(true);
+        objNivelFacil.jButton9.setEnabled(true);
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         JButton botonPresionado = (JButton) e.getSource();
@@ -147,6 +174,8 @@ public class ControladorNivelFacil implements ActionListener {
             objpregunta = objOperacionesPreguntaBD.obtenerPreguntaAleatoria("faciles");
             objOperacionesCartas.mostrarPregunta(objpregunta, objNivelFacil.jButton9);
         }
+        
+
         if (e.getSource() == this.objNivelFacil.jButton10) {
             MenuNiveles objMenuNiveles = new MenuNiveles();
             objMenuNiveles.setVisible(true);
@@ -159,6 +188,12 @@ public class ControladorNivelFacil implements ActionListener {
             int limiteTiempo = 5;
             Thread hilo = new Thread() {
                 public void run() {
+                    // Desactivar botones antes de empezar
+                    desactivarBotones();
+                    
+                    // Activar botones cuando el temporizador empiece
+                    activarBotones();
+
                     for (;;) {
                         if (estado) {
                             try {
@@ -207,3 +242,4 @@ public class ControladorNivelFacil implements ActionListener {
         objNivelFacil.dispose();
     }
 }
+

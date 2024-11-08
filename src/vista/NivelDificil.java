@@ -5,6 +5,8 @@
  */
 package vista;
 
+import controlador.ControladorNivelDificil;
+import controlador.ControladorNivelFacil;
 import java.awt.Graphics;
 import java.awt.Image;
 
@@ -13,17 +15,18 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author CHAPARRO
+ * @author Alan
  */
 public class NivelDificil extends javax.swing.JFrame {
     
     FondoPanel fondo = new FondoPanel();
+    ControladorNivelDificil objControladorNivelDificil;
     //ControladorNivelDificil objControladorNivelDificil;
     public NivelDificil() 
     {      
-        this.setContentPane(fondo);
-        
-        initComponents();                                        
+        this.setContentPane(fondo);  
+        initComponents(); 
+        objControladorNivelDificil = new ControladorNivelDificil(this);
     }
 
     /**
@@ -156,8 +159,7 @@ public class NivelDificil extends javax.swing.JFrame {
                         .addGap(26, 26, 26)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jButton1)
                     .addComponent(jButton2)
                     .addComponent(jButton3))
@@ -190,7 +192,7 @@ public class NivelDificil extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1074, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -241,7 +243,7 @@ public class NivelDificil extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
+    public javax.swing.JButton jButton10;
     public javax.swing.JButton jButton11;
     public javax.swing.JButton jButton2;
     public javax.swing.JButton jButton3;
