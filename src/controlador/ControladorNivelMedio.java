@@ -92,13 +92,6 @@ public class ControladorNivelMedio implements ActionListener {
         }
 
         if (e.getSource() == this.objNivelMedio.jButton11) {
-            MenuNiveles objMenuNiveles = new MenuNiveles();
-            objMenuNiveles.setVisible(true);
-            this.objNivelMedio.dispose();
-        }
-
-        if (e.getSource() == this.objNivelMedio.jButton10) {
-            objNivelMedio.jButton10.setEnabled(false);
 
             estado = true;
             int limiteTiempo = 5;
@@ -122,7 +115,7 @@ public class ControladorNivelMedio implements ActionListener {
                                     seg = 0;
                                     min = 0;
                                 }
-                                objNivelMedio.jLabel3.setText(":" + min + " : " + seg + " : ");
+                                objNivelMedio.jLabel1.setText(":" + min + " : " + seg + " : ");
                                 objNivelMedio.jLabel2.setText(":" + miliseg);
                                 miliseg++;
 
@@ -146,6 +139,14 @@ public class ControladorNivelMedio implements ActionListener {
                 }
             };
             hilo.start();
+        }
+
+        if (e.getSource() == this.objNivelMedio.jButton10) {
+            MenuNiveles objMenuNiveles = new MenuNiveles();
+            objMenuNiveles.setVisible(true);
+            this.objNivelMedio.dispose();
+            objNivelMedio.jButton10.setEnabled(false);
+
         }
     }
 
