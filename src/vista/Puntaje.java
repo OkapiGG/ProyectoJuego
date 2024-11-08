@@ -36,12 +36,12 @@ public class Puntaje extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
         jPanel1.setBorder(javax.swing.BorderFactory.createCompoundBorder(null, javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(0, 0, 0))));
         jPanel1.setForeground(new java.awt.Color(153, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Eras Bold ITC", 0, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setForeground(new java.awt.Color(153, 153, 0));
         jLabel1.setText("Nivel Terminado");
 
         jButton1.setText("REINICIAR");
