@@ -7,7 +7,6 @@ import static java.lang.Thread.sleep;
 import javax.swing.JButton;
 import javax.swing.Timer;
 import modelo.Pregunta;
-import vista.NivelDificil;
 import vista.NivelFacil;
 import vista.MenuNiveles;
 import vista.NivelMedio;
@@ -211,8 +210,8 @@ public class ControladorNivelMedio implements ActionListener {
                                     seg = 0;
                                     min = 0;
                                 }
-                                objNivelMedio.jLabel3.setText(":" + min + " : " + seg + " : ");
-                                objNivelMedio.jLabel4.setText(":" + miliseg);
+                                objNivelMedio.jLabel1.setText(":" + min + " : " + seg + " : ");
+                                objNivelMedio.jLabel2.setText(":" + miliseg);
                                 miliseg++;
 
                                 if ((min * 60 + seg) >= limiteTiempo) {

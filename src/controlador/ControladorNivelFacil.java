@@ -14,7 +14,6 @@ import vista.Puntaje;
 
 public class ControladorNivelFacil implements ActionListener {
     NivelFacil objNivelFacil;
-    NivelDificil objNivelDificil;
     OperacionesPreguntaBD objOperacionesPreguntaBD;
     Pregunta objpregunta;
     Timer timer;
@@ -27,7 +26,6 @@ public class ControladorNivelFacil implements ActionListener {
 
     public ControladorNivelFacil(NivelFacil objNivelFacil) {
         this.objNivelFacil = objNivelFacil;
-        objNivelDificil = new NivelDificil();
         objOperacionesPreguntaBD = new OperacionesPreguntaBD();
         objOperacionesCartas = new OperacionesCartas(this.timer, this.objpregunta);
         iniciarConexionArduino();
@@ -171,7 +169,7 @@ public class ControladorNivelFacil implements ActionListener {
             objOperacionesCartas.mostrarPregunta(objpregunta, objNivelFacil.jButton8);
         }
         if (e.getSource() == this.objNivelFacil.jButton9) {
-            objpregunta = objOperacionesPreguntaBD.obtenerPreguntaAleatoria("faciles");
+            objpregunta = objOperacionesPreguntaBD.obtenerPreguntaAleatoria("dificil");
             objOperacionesCartas.mostrarPregunta(objpregunta, objNivelFacil.jButton9);
         }
         
