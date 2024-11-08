@@ -1,40 +1,36 @@
 package controlador;
 
+import com.fazecast.jSerialComm.SerialPort;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.ImageIcon;
+import static java.lang.Thread.sleep;
 import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.Timer;
 import modelo.Pregunta;
-import vista.Instrucciones;
-import vista.LoginAlta;
 import vista.NivelDificil;
 import vista.NivelFacil;
 import vista.MenuNiveles;
 import vista.Puntaje;
 
 public class ControladorNivelFacil implements ActionListener {
-
     NivelFacil objNivelFacil;
     NivelDificil objNivelDificil;
     OperacionesPreguntaBD objOperacionesPreguntaBD;
     Pregunta objpregunta;
     Timer timer;
-    boolean mostrandoDorso = true;
     OperacionesCartas objOperacionesCartas;
-    ControladorPuntaje objControladorPuntaje;
+    boolean estado = true;
     int miliseg = 0;
     int seg = 0;
     int min = 0;
-    boolean estado = true;
+    private SerialPort arduinoPort;
 
-    public ControladorNivelFacil(NivelFacil objControladorNivelFacil) {
-        this.objNivelFacil = objControladorNivelFacil;
+    public ControladorNivelFacil(NivelFacil objNivelFacil) {
+        this.objNivelFacil = objNivelFacil;
         objNivelDificil = new NivelDificil();
         objOperacionesPreguntaBD = new OperacionesPreguntaBD();
         objOperacionesCartas = new OperacionesCartas(this.timer, this.objpregunta);
+        iniciarConexionArduino();
         this.objNivelFacil.jButton1.addActionListener(this);
         this.objNivelFacil.jButton2.addActionListener(this);
         this.objNivelFacil.jButton3.addActionListener(this);
@@ -46,7 +42,69 @@ public class ControladorNivelFacil implements ActionListener {
         this.objNivelFacil.jButton9.addActionListener(this);
         this.objNivelFacil.jButton10.addActionListener(this);
         this.objNivelFacil.jButton11.addActionListener(this);
+    }
 
+    private void iniciarConexionArduino() {
+        arduinoPort = SerialPort.getCommPort("COM5"); // Cambia "COM5" al puerto correcto
+        arduinoPort.setBaudRate(9600);
+
+        if (arduinoPort.openPort()) {
+            System.out.println("Conexión establecida con Arduino.");
+            new Thread(this::escucharDatosArduino).start();
+        } else {
+            System.out.println("No se pudo abrir el puerto.");
+        }
+    }
+
+    private void escucharDatosArduino() {
+        while (arduinoPort.isOpen()) {
+            if (arduinoPort.bytesAvailable() > 0) {
+                byte[] buffer = new byte[arduinoPort.bytesAvailable()];
+                arduinoPort.readBytes(buffer, buffer.length);
+                String data = new String(buffer).trim();
+                procesarEntrada(data);
+            }
+        }
+    }
+
+    public void procesarEntrada(String input) {
+        switch (input) {
+            case "1":
+                objNivelFacil.jButton1.doClick();
+                break;
+            case "2":
+                objNivelFacil.jButton2.doClick();
+                break;
+            case "3":
+                objNivelFacil.jButton3.doClick();
+                break;
+            case "4":
+                objNivelFacil.jButton4.doClick();
+                break;
+            case "5":
+                objNivelFacil.jButton5.doClick();
+                break;
+            case "6":
+                objNivelFacil.jButton6.doClick();
+                break;
+            case "7":
+                objNivelFacil.jButton7.doClick();
+                break;
+            case "8":
+                objNivelFacil.jButton8.doClick();
+                break;
+            case "9":
+                objNivelFacil.jButton9.doClick();
+                break;
+            case "10":
+                objNivelFacil.jButton10.doClick();
+                break;
+            case "11":
+                objNivelFacil.jButton11.doClick();
+                break;
+            default:
+                System.out.println("Entrada no reconocida desde Arduino: " + input);
+        }
     }
 
     @Override
@@ -56,7 +114,6 @@ public class ControladorNivelFacil implements ActionListener {
         if (e.getSource() == this.objNivelFacil.jButton1) {
             objpregunta = objOperacionesPreguntaBD.obtenerPreguntaAleatoria("faciles");
             objOperacionesCartas.mostrarPregunta(objpregunta, objNivelFacil.jButton1);
-
         }
         if (e.getSource() == this.objNivelFacil.jButton2) {
             objpregunta = objOperacionesPreguntaBD.obtenerPreguntaAleatoria("faciles");
@@ -90,7 +147,6 @@ public class ControladorNivelFacil implements ActionListener {
             objpregunta = objOperacionesPreguntaBD.obtenerPreguntaAleatoria("faciles");
             objOperacionesCartas.mostrarPregunta(objpregunta, objNivelFacil.jButton9);
         }
-
         if (e.getSource() == this.objNivelFacil.jButton10) {
             MenuNiveles objMenuNiveles = new MenuNiveles();
             objMenuNiveles.setVisible(true);
@@ -99,13 +155,12 @@ public class ControladorNivelFacil implements ActionListener {
 
         if (e.getSource() == this.objNivelFacil.jButton11) {
             objNivelFacil.jButton11.setEnabled(false);
-
             estado = true;
             int limiteTiempo = 5;
             Thread hilo = new Thread() {
                 public void run() {
                     for (;;) {
-                        if (estado == true) {
+                        if (estado) {
                             try {
                                 sleep(1);
                                 if (miliseg >= 1000) {
@@ -127,21 +182,17 @@ public class ControladorNivelFacil implements ActionListener {
                                 miliseg++;
 
                                 if ((min * 60 + seg) >= limiteTiempo) {
-                                    estado = false; // Detiene el temporizador
-                                    //JOptionPane.showMessageDialog(null, "¡Tiempo agotado!");// Muestra un mensaje
+                                    estado = false;
                                     mostrarPuntaje();
-                                    objNivelFacil.jButton11.setEnabled(true); // Habilita el botón nuevamente si es necesario
-
+                                    objNivelFacil.jButton11.setEnabled(true);
                                     break;
                                 }
-
                             } catch (Exception e) {
-
+                                System.out.println("Error en el temporizador: " + e.getMessage());
                             }
                         } else {
                             break;
                         }
-
                     }
                 }
             };
@@ -151,9 +202,8 @@ public class ControladorNivelFacil implements ActionListener {
 
     public void mostrarPuntaje() {
         Puntaje objPuntaje = new Puntaje();
-        objPuntaje.setLocationRelativeTo(objNivelFacil); // Centrar el JDialog sobre la ventana del nivel fácil
-        objPuntaje.setVisible(true); // Hacer visible el JDialog
+        objPuntaje.setLocationRelativeTo(objNivelFacil);
+        objPuntaje.setVisible(true);
         objNivelFacil.dispose();
     }
-  
 }

@@ -10,6 +10,7 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import controlador.ControladorNivelFacil;
+import controlador.OperacionesCartas;
 
 /**
  *
@@ -17,14 +18,16 @@ import controlador.ControladorNivelFacil;
  */
 public class NivelFacil extends javax.swing.JFrame {
 
-    FondoPanel fondo = new FondoPanel();
     ControladorNivelFacil objControladorNivelFacil;
-
+    OperacionesCartas objOperacionesCartas;
+    
+    /**
+     * Creates new form NivelFacil
+     */
     public NivelFacil() {
-        this.setContentPane(fondo);
         initComponents();
         objControladorNivelFacil = new ControladorNivelFacil(this);
-        
+        //objOperacionesCartas = new OperacionesCartas(this);
     }
 
     /**

@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 import modelo.Pregunta;
+import vista.NivelFacil;
 
 /**
  *
@@ -19,6 +20,7 @@ import modelo.Pregunta;
  */
 public class OperacionesCartas {
 
+    NivelFacil objNivelFacil;
     Timer timer;
     boolean mostrandoDorso = true;
     Pregunta objpregunta;
@@ -30,8 +32,14 @@ public class OperacionesCartas {
         this.timer = timer;
         this.objpregunta = objpregunta;
     }
+    
+    public OperacionesCartas(NivelFacil objNivelFacil){
+        this.objNivelFacil=objNivelFacil;
+    }
 
     public void mostrarPregunta(Pregunta objpregunta, JButton botonCarta) {
+        this.objpregunta = objpregunta;
+
         String[] opciones = {
             objpregunta.getOpcionA(),
             objpregunta.getOpcionB(),
@@ -39,43 +47,18 @@ public class OperacionesCartas {
             objpregunta.getOpcionD()
         };
 
-        // Muestra el cuadro de diálogo con la pregunta y las opciones
         int respuestaUsuario = JOptionPane.showOptionDialog(
                 null,
-                objpregunta.getPregunta(), // Texto de la pregunta
-                "Pregunta", // Título del diálogo
+                objpregunta.getPregunta(),
+                "Pregunta",
                 JOptionPane.DEFAULT_OPTION,
                 JOptionPane.QUESTION_MESSAGE,
                 null,
-                opciones, // Arreglo de opciones de respuesta
-                opciones[0] // Respuesta predeterminada
+                opciones,
+                opciones[0]
         );
 
-        // Obtiene el texto de la respuesta correcta basado en la letra
-        String respuestaCorrectaTexto = "";
-        switch (objpregunta.getRespuestaCorrecta()) {
-            case 'A':
-                respuestaCorrectaTexto = objpregunta.getOpcionA();
-                break;
-            case 'B':
-                respuestaCorrectaTexto = objpregunta.getOpcionB();
-                break;
-            case 'C':
-                respuestaCorrectaTexto = objpregunta.getOpcionC();
-                break;
-            case 'D':
-                respuestaCorrectaTexto = objpregunta.getOpcionD();
-                break;
-        }
-
-        // Verifica si la respuesta es correcta
-        if (respuestaUsuario != -1 && opciones[respuestaUsuario].equals(respuestaCorrectaTexto)) {
-            JOptionPane.showMessageDialog(null, "¡Correcto!", "Resultado", JOptionPane.INFORMATION_MESSAGE);
-        } else {
-            JOptionPane.showMessageDialog(null, "Incorrecto. La respuesta correcta es: " + respuestaCorrectaTexto, "Resultado", JOptionPane.ERROR_MESSAGE);
-        }
-
-        // Deshabilita el botón para que no se pueda volver a presionar
+        verificarRespuesta(respuestaUsuario, opciones);
         botonCarta.setEnabled(false);
     }
 
@@ -94,7 +77,7 @@ public class OperacionesCartas {
                 } else {
                     // Cambia la imagen del botón al "girar" la carta
                     if (mostrandoDorso) {
-                        botonCarta.setIcon(new ImageIcon("carta1.png")); // Imagen con la pregunta
+                        botonCarta.setIcon(new ImageIcon("carta_1.png")); // Imagen con la pregunta
                         mostrandoDorso = false;
                     } else {
                         botonCarta.setIcon(new ImageIcon("cartaTorso.png")); // Imagen de dorso
@@ -112,6 +95,32 @@ public class OperacionesCartas {
             }
         });
         timer.start();
+    }
+    
+    private void verificarRespuesta(int respuestaUsuario, String[] opciones) {
+        if (respuestaUsuario == -1) return; // Ninguna respuesta seleccionada
+
+        String respuestaCorrectaTexto = "";
+        switch (objpregunta.getRespuestaCorrecta()) {
+            case 'A':
+                respuestaCorrectaTexto = objpregunta.getOpcionA();
+                break;
+            case 'B':
+                respuestaCorrectaTexto = objpregunta.getOpcionB();
+                break;
+            case 'C':
+                respuestaCorrectaTexto = objpregunta.getOpcionC();
+                break;
+            case 'D':
+                respuestaCorrectaTexto = objpregunta.getOpcionD();
+                break;
+        }
+
+        if (opciones[respuestaUsuario].equals(respuestaCorrectaTexto)) {
+            JOptionPane.showMessageDialog(null, "¡Correcto!", "Resultado", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "Incorrecto. La respuesta correcta es: " + respuestaCorrectaTexto, "Resultado", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
 }
