@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 import javax.swing.Timer;
 import modelo.Pregunta;
 import vista.NivelFacil;
+import vista.PuntajeFacil;
 
 /**
  *
@@ -27,14 +28,17 @@ public class OperacionesCartas {
     private Timer timerNivel;
     private int tiempoRestante = 30; // Tiempo total en segundos
     private JLabel labelTiempo; // Etiqueta para mostrar el tiempo
+    private int puntaje = 0; // Puntaje del jugador
+    private ControladorPuntajeFacil objControladorPuntajeFacil;
 
     public OperacionesCartas(Timer timer, Pregunta objpregunta) {
         this.timer = timer;
         this.objpregunta = objpregunta;
     }
-    
-    public OperacionesCartas(NivelFacil objNivelFacil){
-        this.objNivelFacil=objNivelFacil;
+
+    public OperacionesCartas(NivelFacil objNivelFacil, ControladorPuntajeFacil objControladorPuntajeFacil) {
+        this.objNivelFacil = objNivelFacil;
+        this.objControladorPuntajeFacil = objControladorPuntajeFacil;
     }
 
     public void mostrarPregunta(Pregunta objpregunta, JButton botonCarta) {
@@ -96,10 +100,11 @@ public class OperacionesCartas {
         });
         timer.start();
     }
-    
-    private void verificarRespuesta(int respuestaUsuario, String[] opciones) {
-        if (respuestaUsuario == -1) return; // Ninguna respuesta seleccionada
 
+    private void verificarRespuesta(int respuestaUsuario, String[] opciones) {
+        if (respuestaUsuario == -1) {
+            return; // Ninguna respuesta seleccionada
+        }
         String respuestaCorrectaTexto = "";
         switch (objpregunta.getRespuestaCorrecta()) {
             case 'A':
@@ -118,6 +123,9 @@ public class OperacionesCartas {
 
         if (opciones[respuestaUsuario].equals(respuestaCorrectaTexto)) {
             JOptionPane.showMessageDialog(null, "¡Correcto!", "Resultado", JOptionPane.INFORMATION_MESSAGE);
+            puntaje += 10;
+            //objControladorPuntajeFacil.actualizarPuntaje(puntaje);
+            System.out.println(puntaje);
         } else {
             JOptionPane.showMessageDialog(null, "Incorrecto. La respuesta correcta es: " + respuestaCorrectaTexto, "Resultado", JOptionPane.ERROR_MESSAGE);
         }

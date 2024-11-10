@@ -25,10 +25,11 @@ public class ControladorPuntajeFacil implements ActionListener{
     NivelDificil objNivelDificil;
     MenuNiveles objMenuNiveles;
     ControladorNivelFacil objControladorNivelFacil;
-    String nivelActual;
+    OperacionesCartas objOperacionesCartas;
     
-    public ControladorPuntajeFacil(PuntajeFacil objControladorPuntajeFacil) {
-        this.objPuntaje = objControladorPuntajeFacil;
+    
+    public ControladorPuntajeFacil(PuntajeFacil objPuntajeFacil) {
+        this.objPuntaje = objPuntajeFacil;
         this.objMenuNiveles = new MenuNiveles();
         this.objNivelFacil = new NivelFacil();
         this.objPuntaje.jButton1.addActionListener(this);
@@ -50,6 +51,13 @@ public class ControladorPuntajeFacil implements ActionListener{
         }
     }
     
-    
+    /*public void actualizarPuntaje(int puntaje) {
+        objPuntaje.jLabel2.setText("Puntaje: " + puntaje); // Asegúrate de que jLabel2 sea el correcto en PuntajeFacil
+        System.out.println(puntaje); // También puedes imprimir el puntaje para depurar
+    }
+
+    public void actualizarTiempo(int tiempo) {
+        objPuntaje.jLabel3.setText("Tiempo: " + tiempo + "s");
+    }*/
     
 }
