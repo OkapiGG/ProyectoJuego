@@ -10,6 +10,7 @@ import modelo.Pregunta;
 import vista.MenuNiveles;
 import vista.NivelMedio;
 import vista.PuntajeFacil;
+import vista.PuntajeMedio;
 
 public class ControladorNivelMedio implements ActionListener {
 
@@ -251,7 +252,7 @@ public class ControladorNivelMedio implements ActionListener {
 
     public void mostrarPuntaje() {
         cerrarConexionArduino();
-        PuntajeFacil objPuntaje = new PuntajeFacil();
+        PuntajeMedio objPuntaje = new PuntajeMedio();
         objPuntaje.setLocationRelativeTo(objNivelMedio);
         objPuntaje.setVisible(true);
         this.objNivelMedio.dispose();

@@ -12,6 +12,7 @@ import vista.NivelDificil;
 import vista.NivelFacil;
 import vista.NivelMedio;
 import vista.PuntajeFacil;
+import vista.PuntajeMedio;
 
 /**
  *
@@ -19,11 +20,11 @@ import vista.PuntajeFacil;
  */
 public class ControladorPuntajeMedio implements ActionListener{
 
-    PuntajeFacil objPuntaje;
+    PuntajeMedio objPuntaje;
     NivelMedio objNivelMedio;
     MenuNiveles objMenuNiveles;
     
-    public ControladorPuntajeMedio(PuntajeFacil objControladorPuntajeMedio) {
+    public ControladorPuntajeMedio(PuntajeMedio objControladorPuntajeMedio) {
         this.objPuntaje = objControladorPuntajeMedio;
         this.objMenuNiveles = new MenuNiveles();
         this.objNivelMedio = new NivelMedio();
