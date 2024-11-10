@@ -2,24 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/Alan/OneDrive/Documentos/NetBeansProjects/Proyecto%20Zaca/JuegoProyecto/src/controlador/ControladorNivelDificil.java</file>
-            <file>file:/C:/Users/Alan/OneDrive/Documentos/NetBeansProjects/Proyecto%20Zaca/JuegoProyecto/src/vista/MenuNiveles.java</file>
-            <file>file:/C:/Users/Alan/OneDrive/Documentos/NetBeansProjects/Proyecto%20Zaca/JuegoProyecto/src/controlador/ConexionArduino.java</file>
-            <file>file:/C:/Users/Alan/OneDrive/Documentos/NetBeansProjects/Proyecto%20Zaca/JuegoProyecto/src/controlador/ControladorInicioSesion.java</file>
-            <file>file:/C:/Users/Alan/OneDrive/Documentos/NetBeansProjects/Proyecto%20Zaca/JuegoProyecto/src/imagenes/registro.png</file>
-            <file>file:/C:/Users/Alan/OneDrive/Documentos/NetBeansProjects/Proyecto%20Zaca/JuegoProyecto/src/controlador/ControladorMenuNiveles.java</file>
-            <file>file:/C:/Users/Alan/OneDrive/Documentos/NetBeansProjects/Proyecto%20Zaca/JuegoProyecto/src/vista/InicioJuego.java</file>
-            <file>file:/C:/Users/Alan/OneDrive/Documentos/NetBeansProjects/Proyecto%20Zaca/JuegoProyecto/src/vista/Puntaje.java</file>
-            <file>file:/C:/Users/Alan/OneDrive/Documentos/NetBeansProjects/Proyecto%20Zaca/JuegoProyecto/src/vista/InicioSesion.java</file>
-            <file>file:/C:/Users/Alan/OneDrive/Documentos/NetBeansProjects/Proyecto%20Zaca/JuegoProyecto/src/controlador/ControladorNivelFacil.java</file>
-            <file>file:/C:/Users/Alan/OneDrive/Documentos/NetBeansProjects/Proyecto%20Zaca/JuegoProyecto/src/controlador/ControladorPuntaje.java</file>
-            <file>file:/C:/Users/Alan/OneDrive/Documentos/NetBeansProjects/Proyecto%20Zaca/JuegoProyecto/src/imagenes/carta_1.png</file>
-            <file>file:/C:/Users/Alan/OneDrive/Documentos/NetBeansProjects/Proyecto%20Zaca/JuegoProyecto/src/vista/NivelFacil.java</file>
-            <file>file:/C:/Users/Alan/OneDrive/Documentos/NetBeansProjects/Proyecto%20Zaca/JuegoProyecto/src/vista/NivelDificil.java</file>
-            <file>file:/C:/Users/Alan/OneDrive/Documentos/NetBeansProjects/Proyecto%20Zaca/JuegoProyecto/src/controlador/OperacionesListaLogin.java</file>
-            <file>file:/C:/Users/Alan/OneDrive/Documentos/NetBeansProjects/Proyecto%20Zaca/JuegoProyecto/src/controlador/OperacionesCartas.java</file>
-            <file>file:/C:/Users/Alan/OneDrive/Documentos/NetBeansProjects/Proyecto%20Zaca/JuegoProyecto/src/controlador/ControladorNivelMedio.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
