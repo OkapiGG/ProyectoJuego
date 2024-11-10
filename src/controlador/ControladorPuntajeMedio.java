@@ -10,23 +10,23 @@ import vista.LoginAlta;
 import vista.MenuNiveles;
 import vista.NivelDificil;
 import vista.NivelFacil;
-import vista.Puntaje;
+import vista.NivelMedio;
+import vista.PuntajeFacil;
 
 /**
  *
  * @author Alan
  */
-public class ControladorPuntaje implements ActionListener{
+public class ControladorPuntajeMedio implements ActionListener{
 
-    Puntaje objPuntaje;
-    NivelFacil objNivelFacil;
+    PuntajeFacil objPuntaje;
+    NivelMedio objNivelMedio;
     MenuNiveles objMenuNiveles;
-    ControladorNivelFacil objControladorNivelFacil;
     
-    public ControladorPuntaje(Puntaje objControladorPuntaje) {
-        this.objPuntaje = objControladorPuntaje;
+    public ControladorPuntajeMedio(PuntajeFacil objControladorPuntajeMedio) {
+        this.objPuntaje = objControladorPuntajeMedio;
         this.objMenuNiveles = new MenuNiveles();
-        this.objNivelFacil = new NivelFacil();
+        this.objNivelMedio = new NivelMedio();
         this.objPuntaje.jButton1.addActionListener(this);
         this.objPuntaje.jButton2.addActionListener(this);
     }
@@ -35,15 +35,14 @@ public class ControladorPuntaje implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         
         if (e.getSource() == this.objPuntaje.jButton1) {
-            objNivelFacil.setVisible(true);
+            objNivelMedio.setVisible(true);
             this.objPuntaje.dispose();
         }
         
         if (e.getSource() == this.objPuntaje.jButton2) {
             objMenuNiveles.setVisible(true);
             this.objPuntaje.dispose();
-            objNivelFacil.dispose();         
+            objNivelMedio.dispose();         
         }
-    }
-    
+    } 
 }

@@ -4,20 +4,21 @@
  */
 package vista;
 
-import controlador.ControladorNivelFacil;
-import controlador.ControladorPuntaje;
+import controlador.ControladorPuntajeFacil;
+import controlador.ControladorPuntajeMedio;
 
 /**
  *
  * @author Alan
  */
-public class Puntaje extends javax.swing.JFrame {
+public class PuntajeFacil extends javax.swing.JFrame {
 
-    ControladorPuntaje objControladorPuntaje;
+    ControladorPuntajeFacil objControladorPuntajeFacil;
+    ControladorPuntajeMedio objControladorPuntajeMedio;
     
-    public Puntaje() {
+    public PuntajeFacil() {
         initComponents();
-        objControladorPuntaje = new ControladorPuntaje(this);
+        objControladorPuntajeFacil = new ControladorPuntajeFacil(this);
     }
 
     /**
@@ -117,20 +118,21 @@ public class Puntaje extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Puntaje.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PuntajeFacil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Puntaje.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PuntajeFacil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Puntaje.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PuntajeFacil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Puntaje.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PuntajeFacil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Puntaje().setVisible(true);
+                new PuntajeFacil().setVisible(true);
             }
         });
     }
