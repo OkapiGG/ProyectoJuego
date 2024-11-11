@@ -35,12 +35,12 @@ public class OperacionesCartas {
         this.timer = timer;
         this.objpregunta = objpregunta;
     }
-
+/*
     public OperacionesCartas(NivelFacil objNivelFacil, ControladorPuntajeFacil objControladorPuntajeFacil) {
         this.objNivelFacil = objNivelFacil;
         this.objControladorPuntajeFacil = objControladorPuntajeFacil;
     }
-
+*/
     public void mostrarPregunta(Pregunta objpregunta, JButton botonCarta) {
         this.objpregunta = objpregunta;
 
@@ -66,7 +66,7 @@ public class OperacionesCartas {
         botonCarta.setEnabled(false);
     }
 
-    public void iniciarAnimacionVolteo(JButton botonCarta) {
+  /*  public void iniciarAnimacionVolteo(JButton botonCarta) {
         timer = new Timer(30, new ActionListener() {
             private int contador = 0;
             private int maximoContador = 10;
@@ -100,7 +100,7 @@ public class OperacionesCartas {
         });
         timer.start();
     }
-
+*/
     private void verificarRespuesta(int respuestaUsuario, String[] opciones) {
         if (respuestaUsuario == -1) {
             return; // Ninguna respuesta seleccionada

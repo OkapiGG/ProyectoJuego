@@ -202,7 +202,7 @@ public class ControladorNivelMedio implements ActionListener {
         if (e.getSource() == this.objNivelMedio.jButton11) {
             objNivelMedio.jButton11.setEnabled(false);
             estado = true;
-            int limiteTiempo = 50;
+            int limiteTiempo = 40;
             Thread hilo = new Thread(() -> {
                 desactivarBotones();
                 activarBotones();

@@ -29,8 +29,8 @@ public class InicioSesion extends javax.swing.JFrame {
         boton1.setIcon(setIcono("/images/siguiente.png", boton1));
         boton1.setPressedIcon(setIconoPresionado("/images/siguiente.png", boton1, 20, 20));
         jButton1.setPressedIcon(setIconoPresionado("/images/guardar.png", jButton1, 20, 15));
-        jTextField1.setBackground(new java.awt.Color(0, 0, 0, 1));
-        jPasswordField1.setBackground(new java.awt.Color(0, 0, 0, 1));
+        //jTextField1.setBackground(new java.awt.Color(0, 0, 0, 1));
+        //jPasswordField1.setBackground(new java.awt.Color(0, 0, 0, 1));
 
     }
 
