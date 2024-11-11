@@ -123,9 +123,6 @@ public class OperacionesCartas {
 
         if (opciones[respuestaUsuario].equals(respuestaCorrectaTexto)) {
             JOptionPane.showMessageDialog(null, "¡Correcto!", "Resultado", JOptionPane.INFORMATION_MESSAGE);
-            puntaje += 10;
-            //objControladorPuntajeFacil.actualizarPuntaje(puntaje);
-            System.out.println(puntaje);
         } else {
             JOptionPane.showMessageDialog(null, "Incorrecto. La respuesta correcta es: " + respuestaCorrectaTexto, "Resultado", JOptionPane.ERROR_MESSAGE);
         }

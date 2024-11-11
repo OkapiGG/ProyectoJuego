@@ -202,7 +202,7 @@ public class ControladorNivelDificil implements ActionListener {
         if (e.getSource() == this.objNivelDificil.jButton11) {
             objNivelDificil.jButton11.setEnabled(false);
             estado = true;
-            int limiteTiempo = 5;
+            int limiteTiempo = 50;
             Thread hilo = new Thread(() -> {
                 desactivarBotones();
                 activarBotones();

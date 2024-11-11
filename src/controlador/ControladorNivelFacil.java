@@ -202,7 +202,7 @@ public class ControladorNivelFacil implements ActionListener {
         if (e.getSource() == this.objNivelFacil.jButton11) {
             objNivelFacil.jButton11.setEnabled(false);
             estado = true;
-            int limiteTiempo = 5;
+            int limiteTiempo = 50;
             Thread hilo = new Thread(() -> {
                 desactivarBotones();
                 activarBotones();

@@ -4,20 +4,19 @@
  */
 package vista;
 
-import controlador.ControladorPuntajeFacil;
-import controlador.ControladorPuntajeMedio;
+import controlador.ControladorPuntajeDificil;
 
 /**
  *
  * @author Alan
  */
-public class PuntajeMedio extends javax.swing.JFrame {
+public class PuntajeDificil extends javax.swing.JFrame {
 
-    ControladorPuntajeMedio objControladorPuntajeMedio;
+    ControladorPuntajeDificil objControladorPuntajeDificil;
     
-    public PuntajeMedio() {
+    public PuntajeDificil() {
         initComponents();
-        objControladorPuntajeMedio = new ControladorPuntajeMedio(this);
+        objControladorPuntajeDificil = new ControladorPuntajeDificil(this);
     }
 
     /**
@@ -117,14 +116,18 @@ public class PuntajeMedio extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PuntajeMedio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PuntajeDificil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PuntajeMedio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PuntajeDificil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PuntajeMedio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PuntajeDificil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PuntajeMedio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PuntajeDificil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -133,7 +136,7 @@ public class PuntajeMedio extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PuntajeMedio().setVisible(true);
+                new PuntajeDificil().setVisible(true);
             }
         });
     }
