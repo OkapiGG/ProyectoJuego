@@ -8,25 +8,29 @@ package vista;
 import controlador.ControladorNivelMedio;
 import java.awt.Graphics;
 import java.awt.Image;
+import javax.swing.Icon;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JPanel;
-
 
 /**
  *
  * @author CHAPARRO
  */
 public class NivelMedio extends javax.swing.JFrame {
-    
+
     FondoPanel fondo = new FondoPanel();
     ControladorNivelMedio objControladorNivelMedio;
-    
-    public NivelMedio() 
-    {      
-        this.setContentPane(fondo);        
-        initComponents();                    
+
+    public NivelMedio() {
+        this.setContentPane(fondo);
+        initComponents();
         objControladorNivelMedio = new ControladorNivelMedio(this);
+        this.setLocationRelativeTo(null);
+        jButton10.setPressedIcon(setIconoPresionado("/images/iconoBack.png", jButton10, 30, 20));
+        jButton11.setIcon(setIcono("/images/Star.gif", jButton11));
+        jButton11.setPressedIcon(setIconoPresionado("/images/Star.gif", jButton11, 20, 15));
     }
 
     /**
@@ -116,13 +120,11 @@ public class NivelMedio extends javax.swing.JFrame {
         jButton9.setBorderPainted(false);
         jButton9.setContentAreaFilled(false);
 
-        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono-72.png"))); // NOI18N
+        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconoBack.png"))); // NOI18N
         jButton10.setBorderPainted(false);
         jButton10.setContentAreaFilled(false);
 
-        jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/youtube-play-button_icon-icons.com_57042.png"))); // NOI18N
         jButton11.setBorderPainted(false);
-        jButton11.setContentAreaFilled(false);
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Courier New", 1, 18)); // NOI18N
@@ -153,7 +155,7 @@ public class NivelMedio extends javax.swing.JFrame {
                         .addGap(70, 70, 70))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton11)
+                            .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton10))
                         .addGap(167, 167, 167))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
@@ -211,7 +213,7 @@ public class NivelMedio extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton7)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton11)
+                        .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(45, 45, 45)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton10)
@@ -317,21 +319,39 @@ public class NivelMedio extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 
-    class FondoPanel extends JPanel
-    {
+    class FondoPanel extends JPanel {
+
         private Image imagen;
-        
+
         @Override
-        public void paint(Graphics g)
-        {
+        public void paint(Graphics g) {
             imagen = new ImageIcon(getClass().getResource("/imagenes/FondoNuevo.png")).getImage();
-            
-            g.drawImage(imagen,0, 0, getWidth(), getHeight(),this);
-            
+
+            g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
+
             setOpaque(false);
-            
+
             super.paint(g);
         }
     }
-    
+
+    public Icon setIcono(String url, JButton boton) {
+
+        ImageIcon icon = new ImageIcon(getClass().getResource(url));
+
+        int ancho = boton.getWidth();
+        int alto = boton.getHeight();
+        ImageIcon icono = new ImageIcon(icon.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
+        return icono;
+
+    }
+
+    public Icon setIconoPresionado(String url, JButton boton, int ancho, int altura) {
+        ImageIcon icon = new ImageIcon(getClass().getResource(url));
+        int width = boton.getWidth() - ancho;
+        int height = boton.getHeight() - altura;
+        ImageIcon icono = new ImageIcon(icon.getImage().getScaledInstance(width, height, Image.SCALE_DEFAULT));
+        return icono;
+    }
+
 }

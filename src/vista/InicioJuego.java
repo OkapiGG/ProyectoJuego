@@ -15,10 +15,10 @@ import javax.swing.JFrame;
 public class InicioJuego extends javax.swing.JFrame {
 
     ControladorInicioJuego objControladorInicioJuego;
-    
-    
+
     public InicioJuego() {
         initComponents();
+        this.setLocationRelativeTo(null);
         objControladorInicioJuego = new ControladorInicioJuego(this);
     }
 
@@ -164,7 +164,7 @@ public class InicioJuego extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new InicioJuego().setVisible(true);
-                
+
             }
         });
     }

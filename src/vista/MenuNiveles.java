@@ -16,6 +16,7 @@ public class MenuNiveles extends javax.swing.JFrame {
     ControladorMenuNiveles objControladorMenuNiveles;
     public MenuNiveles() {
         initComponents();
+        this.setLocationRelativeTo(null);
         objControladorMenuNiveles = new ControladorMenuNiveles(this);
     }
 

@@ -9,8 +9,10 @@ import controlador.ControladorNivelDificil;
 import controlador.ControladorNivelFacil;
 import java.awt.Graphics;
 import java.awt.Image;
+import javax.swing.Icon;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JPanel;
 
 /**
@@ -18,14 +20,18 @@ import javax.swing.JPanel;
  * @author Alan
  */
 public class NivelDificil extends javax.swing.JFrame {
-    
+
     FondoPanel fondo = new FondoPanel();
     ControladorNivelDificil objControladorNivelDificil;
+
     //ControladorNivelDificil objControladorNivelDificil;
-    public NivelDificil() 
-    {      
-        this.setContentPane(fondo);  
-        initComponents(); 
+    public NivelDificil() {
+        this.setContentPane(fondo);
+        initComponents();
+        this.setLocationRelativeTo(null);
+        jButton10.setPressedIcon(setIconoPresionado("/images/iconoBack.png", jButton10, 30, 20));
+        jButton11.setIcon(setIcono("/images/Star.gif", jButton11));
+        jButton11.setPressedIcon(setIconoPresionado("/images/Star.gif", jButton11, 20, 15));
         objControladorNivelDificil = new ControladorNivelDificil(this);
     }
 
@@ -110,13 +116,11 @@ public class NivelDificil extends javax.swing.JFrame {
         jButton9.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/carta.png"))); // NOI18N
         jButton9.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cartaTorso.png"))); // NOI18N
 
-        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono-72.png"))); // NOI18N
+        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconoBack.png"))); // NOI18N
         jButton10.setBorderPainted(false);
         jButton10.setContentAreaFilled(false);
 
-        jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/youtube-play-button_icon-icons.com_57042.png"))); // NOI18N
         jButton11.setBorderPainted(false);
-        jButton11.setContentAreaFilled(false);
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -142,7 +146,7 @@ public class NivelDificil extends javax.swing.JFrame {
                         .addGap(20, 20, 20)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jButton10)
-                            .addComponent(jButton11))
+                            .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton7)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 230, Short.MAX_VALUE)
@@ -183,8 +187,8 @@ public class NivelDificil extends javax.swing.JFrame {
                         .addComponent(jButton4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton7))
-                    .addComponent(jButton11, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(18, 18, 18)
+                    .addComponent(jButton11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton10)
                 .addContainerGap())
         );
@@ -264,21 +268,39 @@ public class NivelDificil extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 
-    class FondoPanel extends JPanel
-    {
+    class FondoPanel extends JPanel {
+
         private Image imagen;
-        
+
         @Override
-        public void paint(Graphics g)
-        {
+        public void paint(Graphics g) {
             imagen = new ImageIcon(getClass().getResource("/imagenes/FondoNuevo.png")).getImage();
-            
-            g.drawImage(imagen,0, 0, getWidth(), getHeight(),this);
-            
+
+            g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
+
             setOpaque(false);
-            
+
             super.paint(g);
         }
     }
-    
+
+    public Icon setIcono(String url, JButton boton) {
+
+        ImageIcon icon = new ImageIcon(getClass().getResource(url));
+
+        int ancho = boton.getWidth();
+        int alto = boton.getHeight();
+        ImageIcon icono = new ImageIcon(icon.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
+        return icono;
+
+    }
+
+    public Icon setIconoPresionado(String url, JButton boton, int ancho, int altura) {
+        ImageIcon icon = new ImageIcon(getClass().getResource(url));
+        int width = boton.getWidth() - ancho;
+        int height = boton.getHeight() - altura;
+        ImageIcon icono = new ImageIcon(icon.getImage().getScaledInstance(width, height, Image.SCALE_DEFAULT));
+        return icono;
+    }
+
 }

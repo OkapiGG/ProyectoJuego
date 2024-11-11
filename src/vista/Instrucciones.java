@@ -17,6 +17,7 @@ public class Instrucciones extends javax.swing.JFrame {
      */
     public Instrucciones() {
         initComponents();
+        this.setLocationRelativeTo(null);
         objControladorInstrucciones = new ControladorInstrucciones(this);
         
     }
