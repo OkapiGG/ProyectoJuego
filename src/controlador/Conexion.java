@@ -13,7 +13,7 @@ public class Conexion {
     private final String PUERTO = "5432";
     private final String DB = "login";
     private final String USER = "postgres";
-    private final String PASSWORD = "ema24"; // aqui no jala la misma base pa la dos cada que cambias la contra
+    private final String PASSWORD = "maiz564"; // aqui no jala la misma base pa la dos cada que cambias la contra
 
     private Conexion() {
         try {
