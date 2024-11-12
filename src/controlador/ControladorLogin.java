@@ -7,6 +7,7 @@ import vista.LoginAlta;
 import modelo.Login;
 import java.sql.*;
 import javax.swing.JOptionPane;
+import vista.InicioJuego;
 import vista.Instrucciones;
 import vista.MenuNiveles;
 
@@ -31,6 +32,7 @@ public class ControladorLogin implements ActionListener {
         this.objVerificador = new Verificador();
         this.objLoginAlta.jButton1.addActionListener(this);
         this.objLoginAlta.jButton2.addActionListener(this);
+        this.objLoginAlta.jButton3.addActionListener(this);
     }
 
     @Override
@@ -68,6 +70,12 @@ public class ControladorLogin implements ActionListener {
             else{
                 JOptionPane.showMessageDialog(null, "Rellena los datos");
             }
+        }
+        
+        if(e.getSource() == this.objLoginAlta.jButton3){
+            InicioJuego objInicioJuego = new InicioJuego();
+            objInicioJuego.setVisible(true);
+            this.objLoginAlta.dispose();
         }
     }
 

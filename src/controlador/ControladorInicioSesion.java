@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
 import javax.swing.JOptionPane;
+import vista.InicioJuego;
 import vista.InicioSesion;
 import vista.MenuNiveles;
 
@@ -16,6 +17,7 @@ public class ControladorInicioSesion implements ActionListener {
         this.objInicioSesion = objInicioSesion;
         this.objConexion = Conexion.getInstance();
         this.objInicioSesion.jButton1.addActionListener(this);
+        this.objInicioSesion.jButton2.addActionListener(this);
     }
 
     @Override
@@ -32,6 +34,12 @@ public class ControladorInicioSesion implements ActionListener {
             } else {
                 JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos");
             }
+        }
+        
+        if(e.getSource() == this.objInicioSesion.jButton2){
+            InicioJuego objInicioJuego = new InicioJuego();
+            objInicioJuego.setVisible(true);
+            this.objInicioSesion.dispose();
         }
     }
 

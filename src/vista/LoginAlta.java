@@ -25,12 +25,13 @@ public class LoginAlta extends javax.swing.JFrame {
         this.setContentPane(fondo);
         initComponents();
         this.setLocationRelativeTo(null);
-        jButton2.setIcon(setIcono("/images/siguiente.png", jButton2));
-        jButton2.setPressedIcon(setIconoPresionado("/images/siguiente.png", jButton2, 20, 20));
+        //jButton2.setIcon(setIcono("/images/iconoBack.png", jButton2));
         jButton1.setPressedIcon(setIconoPresionado("/images/guardar.png", jButton1, 20, 15));
+        jButton2.setPressedIcon(setIconoPresionado("/images/iconoNext.png", jButton2, 20, 20));
+        jButton3.setPressedIcon(setIconoPresionado("/images/iconoBack.png", jButton2, 20, 20));
         jTextField1.setBackground(new java.awt.Color(0, 0, 0, 1));
         jPasswordField1.setBackground(new java.awt.Color(0, 0, 0, 1));
-
+        jPanel2.setBackground(new java.awt.Color(10, 10, 10, 10));
         objControladorLogin = new ControladorLogin(this);
 
     }
@@ -54,6 +55,7 @@ public class LoginAlta extends javax.swing.JFrame {
         jPasswordField1 = new javax.swing.JPasswordField();
         jButton2 = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -85,6 +87,7 @@ public class LoginAlta extends javax.swing.JFrame {
         jPasswordField1.setForeground(java.awt.Color.white);
         jPasswordField1.setOpaque(false);
 
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconoNext.png"))); // NOI18N
         jButton2.setBorder(null);
         jButton2.setBorderPainted(false);
         jButton2.setContentAreaFilled(false);
@@ -92,7 +95,11 @@ public class LoginAlta extends javax.swing.JFrame {
         jButton2.setFocusPainted(false);
 
         jTextField1.setForeground(java.awt.SystemColor.controlLtHighlight);
-        jTextField1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jTextField1.setOpaque(false);
+
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconoBack.png"))); // NOI18N
+        jButton3.setBorderPainted(false);
+        jButton3.setContentAreaFilled(false);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -109,21 +116,21 @@ public class LoginAlta extends javax.swing.JFrame {
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(178, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(114, 114, 114)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))
-                        .addGap(191, 191, 191))))
+                .addContainerGap(250, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2))
+                .addGap(191, 191, 191))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(114, 114, 114)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
@@ -142,7 +149,9 @@ public class LoginAlta extends javax.swing.JFrame {
                 .addGap(26, 26, 26))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -150,9 +159,9 @@ public class LoginAlta extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(57, Short.MAX_VALUE)
+                .addContainerGap(102, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -227,6 +236,7 @@ public class LoginAlta extends javax.swing.JFrame {
     private javax.swing.JLabel JLabel3;
     public javax.swing.JButton jButton1;
     public javax.swing.JButton jButton2;
+    public javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
@@ -241,7 +251,7 @@ public class LoginAlta extends javax.swing.JFrame {
 
         @Override
         public void paint(Graphics g) {
-            imagen = new ImageIcon(getClass().getResource("/images/fondoinicio.gif")).getImage();
+            imagen = new ImageIcon(getClass().getResource("/images/FondoInicio.gif")).getImage();
             g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
             setOpaque(false);
             super.paint(g);

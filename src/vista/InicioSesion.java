@@ -26,12 +26,12 @@ public class InicioSesion extends javax.swing.JFrame {
         initComponents();
         objControladorInicioSesion = new ControladorInicioSesion(this);
         this.setLocationRelativeTo(null);
-        boton1.setIcon(setIcono("/images/siguiente.png", boton1));
-        boton1.setPressedIcon(setIconoPresionado("/images/siguiente.png", boton1, 20, 20));
         jButton1.setPressedIcon(setIconoPresionado("/images/guardar.png", jButton1, 20, 15));
-        //jTextField1.setBackground(new java.awt.Color(0, 0, 0, 1));
-        //jPasswordField1.setBackground(new java.awt.Color(0, 0, 0, 1));
-
+        boton1.setPressedIcon(setIconoPresionado("/images/iconoNext.png", boton1, 20, 20));
+        jButton1.setPressedIcon(setIconoPresionado("/images/guardar.png", jButton1, 20, 20));
+        jTextField1.setBackground(new java.awt.Color(0, 0, 0, 1));
+        jPasswordField1.setBackground(new java.awt.Color(0, 0, 0, 1));
+        jPanel2.setBackground(new java.awt.Color(10, 10, 10, 10));
     }
 
     /**
@@ -53,6 +53,7 @@ public class InicioSesion extends javax.swing.JFrame {
         jPasswordField1 = new javax.swing.JPasswordField();
         boton1 = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -61,15 +62,20 @@ public class InicioSesion extends javax.swing.JFrame {
         jPanel2.setFocusable(false);
         jPanel2.setOpaque(false);
         jPanel2.setRequestFocusEnabled(false);
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/man.png"))); // NOI18N
         jLabel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 0, true));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/login.png"))); // NOI18N
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 82, -1, -1));
 
         JLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/name.png"))); // NOI18N
+        jPanel2.add(JLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 185, -1, 56));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/password (1).png"))); // NOI18N
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 339, -1, -1));
 
         jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/guardar.png"))); // NOI18N
@@ -80,69 +86,26 @@ public class InicioSesion extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 480, -1, -1));
 
-        jPasswordField1.setBackground(new java.awt.Color(255, 255, 255));
-        jPasswordField1.setForeground(new java.awt.Color(51, 51, 51));
+        jPasswordField1.setForeground(java.awt.SystemColor.textHighlightText);
+        jPanel2.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(227, 363, 100, -1));
 
+        boton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconoNext.png"))); // NOI18N
         boton1.setBorder(null);
         boton1.setBorderPainted(false);
         boton1.setContentAreaFilled(false);
         boton1.setDefaultCapable(false);
         boton1.setFocusPainted(false);
+        jPanel2.add(boton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(425, 472, 80, 80));
 
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField1.setForeground(new java.awt.Color(0, 0, 0));
+        jTextField1.setForeground(java.awt.SystemColor.controlLtHighlight);
+        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(227, 217, 100, -1));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(129, 129, 129)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(JLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(34, 34, 34)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(178, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(114, 114, 114)
-                        .addComponent(boton1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))
-                        .addGap(191, 191, 191))))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addGap(39, 39, 39)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(JLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(98, 98, 98)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(26, 26, 26))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(boton1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconoBack.png"))); // NOI18N
+        jButton2.setBorderPainted(false);
+        jButton2.setContentAreaFilled(false);
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 472, 80, -1));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -250,6 +213,7 @@ public class InicioSesion extends javax.swing.JFrame {
     private javax.swing.JLabel JLabel3;
     public javax.swing.JButton boton1;
     public javax.swing.JButton jButton1;
+    public javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
